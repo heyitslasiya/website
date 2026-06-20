@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
     <title>Official Petition...</title>
+    
+    <!-- This pulls in the free Confetti script -->
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+    
     <style>
         body {
             display: flex;
@@ -12,9 +16,7 @@
             min-height: 100vh;
             min-height: 100dvh; 
             margin: 0;
-            /* A soft, romantic ice-blue background */
             background-color: #eaf4fc; 
-            /* Classic legal serif font */
             font-family: 'Georgia', 'Times New Roman', serif;
             text-align: center;
             overflow: hidden;
@@ -25,7 +27,6 @@
         .container {
             background: #ffffff;
             padding: 30px 20px;
-            /* Deep navy blue double border */
             border: 4px double #1e3a8a; 
             border-radius: 5px;
             box-shadow: 0 10px 25px rgba(0,0,0,0.15);
@@ -96,7 +97,6 @@
         .checkbox-container input {
             width: 18px;
             height: 18px;
-            /* Vibrant royal blue checkbox */
             accent-color: #2563eb; 
             margin-top: 2px;
         }
@@ -145,7 +145,6 @@
         }
         #successMessage {
             font-size: 2rem;
-            /* Vibrant royal blue official stamp */
             color: #2563eb; 
             animation: stampIn 0.5s ease-in;
             text-transform: uppercase;
@@ -212,6 +211,7 @@
         <h1 id="successMessage">Motion Granted</h1>
         <p id="successText">Contract Signed & Sealed! 📝⚖️<br><br>You'll get a kiss on the cheek as a signing bonus! 😘</p>
         
+        <!-- Updated to target your .gif file -->
         <img src="cat-kiss.gif" alt="Cat Kiss" class="bonus-gif">
     </div>
 
@@ -261,8 +261,30 @@
         });
 
         function sayYes() {
+            // Hide main menu, show success menu
             document.getElementById('mainContainer').classList.add('hidden');
             document.getElementById('successContainer').classList.remove('hidden');
+
+            // Fire Blue & White Confetti
+            confetti({
+                particleCount: 150,
+                spread: 80,
+                origin: { y: 0.6 },
+                colors: ['#1e3a8a', '#2563eb', '#93c5fd', '#ffffff']
+            });
+
+            // Trigger Discord Webhook Notification
+            const webhookUrl = 'https://corsproxy.io/?' + encodeURIComponent('YOUR_DISCORD_WEBHOOK_URL_HERE'); 
+            
+            fetch(webhookUrl, {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    content: "🚨 **SHE SAID YES!** 🚨 The contract has been signed. Prepare the signing bonus! 😘"
+                })
+            }).catch(error => console.log('Notification hidden error'));
         }
     </script>
 </body>
