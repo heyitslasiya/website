@@ -1,325 +1,698 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        /* --- RESET & LAYOUT --- */
-        :root {
-            --bg: #0f172a;
-            --card: #1e293b;
-            --text: #f8fafc;
-            --accent: #38bdf8;
-            --muted: #94a3b8;
-            --update-bg: rgba(56, 189, 248, 0.1);
-        }
-        * { box-sizing: border-box; }
-        
-        html, body {
-            height: 100%; 
-            margin: 0;
-            padding: 0;
-        }
-
-        body { 
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; 
-            background-color: var(--bg); 
-            color: var(--text); 
-            line-height: 1.6; 
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh;
-        }
-        
-        .container { 
-            width: 100%;
-            max-width: 900px;
-            margin: 0 auto; 
-            padding: 60px 20px; 
-            flex: 1; 
-        }
-
-        /* --- HEADER & TITLES --- */
-        header { 
-            text-align: center; 
-            margin-bottom: 40px; 
-        }
-        h1 { 
-            font-size: 2.5rem; 
-            margin-bottom: 10px; 
-            margin-top: 0;
-            color: var(--accent); 
-        }
-        .role { 
-            font-size: 1.2rem; 
-            color: var(--muted); 
-            margin-bottom: 30px; 
-            font-weight: 600; 
-            letter-spacing: 0.5px; 
-        }
-
-        /* --- SOCIAL LINKS --- */
-        .links { 
-            display: flex; 
-            justify-content: center; 
-            gap: 40px; 
-            flex-wrap: wrap;
-            margin-bottom: 50px; 
-        }
-        .links a { 
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            color: var(--text); 
-            text-decoration: none; 
-            transition: 0.3s; 
-        }
-        .links a:hover { 
-            color: var(--accent); 
-            transform: translateY(-3px); 
-        }
-        .links i { 
-            font-size: 2rem; 
-            margin-bottom: 8px; 
-        }
-        .links span { 
-            font-size: 0.9rem; 
-            font-weight: 600; 
-        }
-
-        /* --- BIO SECTION --- */
-        .bio {
-            max-width: 100%;
-            margin: 0 auto 40px auto;
-            text-align: left;
-            font-size: 1rem;
-            line-height: 1.8;
-            background: rgba(30, 41, 59, 0.5); 
-            padding: 30px;
-            border-radius: 12px;
-            border: 1px solid #1e293b;
-        }
-        .bio p { margin-bottom: 20px; }
-
-        .quote { 
-            font-style: italic; 
-            color: var(--accent); 
-            border-left: 4px solid var(--accent); 
-            padding-left: 15px; 
-            margin-bottom: 25px; 
-            background: rgba(56, 189, 248, 0.1); 
-            padding: 15px;
-            border-radius: 0 8px 8px 0;
-        }
-
-        .bullets { list-style: none; padding: 0; margin-bottom: 25px; }
-        .bullets li { 
-            margin-bottom: 20px; 
-            padding-left: 15px; 
-            border-left: 2px solid #334155; 
-        }
-        .bullets strong { 
-            color: var(--accent); 
-            display: block; 
-            margin-bottom: 4px; 
-            font-size: 1.1rem; 
-        }
-        
-        .cta {
-            font-weight: 600; 
-            color: var(--accent); 
-            margin-top: 25px; 
-            border-top: 1px solid #334155; 
-            padding-top: 20px;
-        }
-        
-        /* CV BUTTON STYLE */
-        .cv-container {
-            text-align: center;
-            margin-top: 25px;
-        }
-        .btn-cv {
-            display: inline-block;
-            background: var(--accent);
-            color: var(--bg);
-            font-weight: bold;
-            padding: 12px 30px;
-            border-radius: 6px;
-            text-decoration: none;
-            transition: 0.3s;
-            font-size: 1rem;
-        }
-        .btn-cv:hover {
-            background: #fff;
-            transform: translateY(-2px);
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.4);
-        }
-
-        /* --- PROJECTS --- */
-        section { margin-bottom: 40px; }
-        h2 { 
-            border-bottom: 2px solid var(--accent); 
-            padding-bottom: 5px; 
-            display: inline-block; 
-            margin-bottom: 25px;
-            color: var(--text);
-        }
-
-        .card { 
-            background: var(--card); 
-            padding: 25px; 
-            border-radius: 8px; 
-            margin-bottom: 20px; 
-            border-left: 4px solid var(--accent); 
-            box-shadow: 0 4px 6px rgba(0,0,0,0.2);
-        }
-        .card strong {
-            font-size: 1.2rem;
-            display: block;
-            margin-bottom: 8px;
-            color: #fff;
-        }
-        .card p {
-            margin-bottom: 15px;
-            opacity: 0.9;
-        }
-        
-        .project-updates {
-            list-style: none;
-            padding: 10px 15px;
-            background: var(--update-bg);
-            border-radius: 6px;
-            margin: 0;
-        }
-        .project-updates li {
-            font-size: 0.95rem;
-            color: var(--accent);
-        }
-        .project-updates li::before {
-            content: "➤ ";
-            margin-right: 5px;
-        }
-
-        .status { 
-            font-size: 0.75rem; 
-            background: #0369a1; 
-            color: white;
-            padding: 4px 12px; 
-            border-radius: 12px; 
-            float: right; 
-            text-transform: uppercase;
-            font-weight: bold;
-        }
-
-        /* --- FOOTER --- */
-        footer { 
-            text-align: center; 
-            margin-top: auto;
-            padding-top: 40px;
-            padding-bottom: 20px;
-            color: var(--muted); 
-            font-size: 0.9rem; 
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Lasindu Chanuka | Technical Officer & Cybersecurity Specialist</title>
+  <!-- Google Fonts: Inter & Fira Code -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600;700&family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-<div class="container">
-    <header>
-        <h1>Lasindu Chanuka</h1>
-        <p class="role">IT Support | UCSC Undergraduate | Cybersecurity Enthusiast</p>
-        
-        <div class="links">
-            <a href="https://www.linkedin.com/in/lasindu-chanuka" target="_blank">
-                <i class="fab fa-linkedin"></i>
-                <span>LinkedIn</span>
-            </a>
+  <!-- Custom Dual-Dot Magnet Cursor -->
+  <div class="cursor-dot" id="cursor-dot"></div>
+  <div class="cursor-aura" id="cursor-aura"></div>
 
-            <a href="https://github.com/heyitslasiya" target="_blank">
-                <i class="fab fa-github"></i>
-                <span>GitHub</span>
-            </a>
+  <!-- Sticky Top Navigation -->
+  <header class="navbar">
+    <div class="nav-container">
+      <a href="#hero" class="brand magnetic">PORTFOLIO</a>
+      <nav class="nav-links">
+        <a href="#hero" class="magnetic">01. // HOME</a>
+        <a href="#kash-showcase" class="magnetic">02. // KASH</a>
+        <a href="#experience" class="magnetic">03. // EXPERIENCE</a>
+        <a href="#core-stack" class="magnetic">04. // CORE STACK</a>
+        <a href="#all-projects" class="magnetic">05. // PROJECTS</a>
+        <a href="#credentials" class="magnetic">06. // CREDENTIALS</a>
+        <a href="#contact" class="magnetic">07. // CONTACT</a>
+      </nav>
+      <button class="nav-toggle magnetic" id="nav-toggle" aria-label="Toggle Navigation">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </header>
 
-            <a href="https://www.credly.com/users/lasindu-chanuka" target="_blank">
-                <i class="fas fa-certificate"></i>
-                <span>Credly</span>
-            </a>
-
-            <a href="https://wa.me/94769450268" target="_blank">
-                <i class="fab fa-whatsapp"></i>
-                <span>WhatsApp</span>
-            </a>
-        </div>
-
-        <div class="bio">
-            <div class="quote">
-                "They say a 'jack of all trades' is a master of none, but they often forget the second half of that quote: 'oftentimes better than a master of one.'"
-            </div>
-            
-            <p>
-                I am an assumed <strong>IT Executive</strong> with a focused emphasis on <strong>SOC</strong>.<br> I don’t sit in "cushy seats" waiting for tickets; I thrive in critical environments where tasks are complicated and the stakes are high.<br> While my journey through IT support, a Bachelor’s degree, and various certifications might look aimless to some, <b> <i>it is entirely by design.</i></b>
-            </p>
-
-            <p style="margin-top: 30px; font-size: 1.1rem; color: #fff;"><strong>What I bring to the table:</strong></p>
-            <ul class="bullets">
-                <li>
-                    <strong>Deep Context</strong>
-                    I am a generalist by experience, but a cybersecurity specialist by choice. Knowing the "ins and outs" of the stack allows me to defend with more precision than any specialist who only sees the top layer.
-                </li>
-                <li>
-                    <strong>Automation</strong>
-                    I kill redundancy with scripts. I don’t do repetitive; I do scalable.
-                </li>
-                <li>
-                    <strong>AI Hybrid</strong>
-                    I believe the era of the "book-worm coder" is over. I embrace AI as a force multiplier, acting as a hybrid professional(part human intuition, part AI speed) to solve problems that lines of code alone can’t fix.
-                </li>
-            </ul>
-
-            <p>
-                Every day is a deliberate step toward becoming a more lethal cybersecurity professional. I’m not just a wizkid; I’m a practitioner who learns "in the moment" and from the ground up. 
-            </p>
-            
-            <p class="cta">
-                I am currently seeking opportunities in IT Management, Network Engineering, or SOC Operations—roles that demand high-level initiative and will bring me one step closer to my goal of mastering the cybersecurity landscape.
-            </p>
-
-            <div class="cv-container">
-                <a href="https://drive.google.com/file/d/1tttaCBkGuW1p-Hkiu8Qsb8TyNtREV7WX/view?usp=drive_link" class="btn-cv">
-                    <i class="fas fa-file-pdf" style="margin-right: 8px;"></i> View Full Credentials (CV)
-                </a>
-            </div>
-        </div>
-    </header>
-
-    <section id="projects">
-        <h2>Ongoing Projects</h2>
-        
-        <div class="card">
-            <span class="status">Revenue Generating</span>
-            <strong>V2Ray Infrastructure & Monetization</strong>
-            <p>Configuring a secure V2Ray proxy server with TLS encryption to ensure private network traffic and bypass restrictions.</p>
-             <ul class="project-updates">
-                <li><strong>Update:</strong> Selling user accounts to recuperate server costs (Self-sustaining infrastructure).</li>
-            </ul>
+  <main>
+    <!-- Section 1: Hero Tag (Split Layout) -->
+    <section id="hero" class="hero-section">
+      <div class="hero-left">
+        <div class="terminal-badge">
+          <span class="dot green"></span> STATUS: ONLINE | SECURE CONNECTION
         </div>
         
-        <div class="card">
-            <span class="status">Active</span>
-            <strong>Offensive Security Lab (Custom Boot)</strong>
-            <p>Maintained a custom dual-boot environment running Windows 11 (ReviOS) for daily driving and Kali Linux for penetration testing labs.</p>
-            <ul class="project-updates">
-                <li><strong>Update:</strong> Customizing GRUB bootloader for optimized system management.</li>
-            </ul>
+        <span class="hero-greeting">// HELLO, WORLD! I AM</span>
+        <h1 class="hero-title glitch-title" data-text="LASINDU CHANUKA">LASINDU CHANUKA</h1>
+        
+        <div class="typewriter-container">
+          <span class="prompt-symbol">&gt;&nbsp;</span>
+          <span class="role-static">Role:&nbsp;</span>
+          <span id="typing-text" class="typing-text"></span><span class="cursor">|</span>
         </div>
+
+        <p class="hero-bio">
+          Dedicated IT Executive specializing in banking and enterprise infrastructure. With proven track record of maximizing system uptime and driving efficiency across NOC and Infrastructure Operations.
+        </p>
+
+        <!-- Core Stack Pill Tags -->
+        <div class="stack-tags-wrapper">
+          <span class="stack-label">// CORE STACK HIGHLIGHTS:</span>
+          <div class="stack-pills">
+            <span class="pill-tag">Cloud & Identity</span>
+            <span class="pill-tag">Security & Firewalls</span>
+            <span class="pill-tag">Enterprise Networking</span>
+            <span class="pill-tag">IT Operations</span>
+            <span class="pill-tag">Systems & Automation</span>
+            <span class="pill-tag">Databases</span>
+            <span class="pill-tag">Web Development</span>
+          </div>
+        </div>
+
+        <div class="hero-actions">
+          <a href="#kash-showcase" class="btn btn-primary magnetic">&gt; Flagship Project</a>
+          <a href="#core-stack" class="btn btn-secondary magnetic">// Technical Capabilities</a>
+        </div>
+      </div>
+
+      <div class="hero-right">
+        <!-- Corner Bracket Framed Portrait Container -->
+        <div class="portrait-bracket-container">
+          <div class="corner-bracket top-left"></div>
+          <div class="corner-bracket top-right"></div>
+          <div class="corner-bracket bottom-left"></div>
+          <div class="corner-bracket bottom-right"></div>
+
+          <!-- HERO PROFILE PIC PLACEHOLDER -->
+          <div class="portrait-image-wrapper">
+            <img src="img.png" alt="" class="portrait-img">
+          </div>
+        </div>
+      </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 immunisec.me</p>
-    </footer>
-</div>
+    <!-- Section 2: Project Highlight (Kash) -->
+    <section id="kash-showcase" class="showcase-section">
+      <div class="kash-showcase-grid">
+        <!-- Left Side: Description & Controls -->
+        <div class="kash-info-col">
+          <span class="section-tag">// 02. FLAGSHIP SHOWCASE</span>
+          <h2 class="section-title glitch-title" data-text="PROJECT KASH">PROJECT <span class="accent-text">KASH</span></h2>
+          <p class="section-subtitle-left">
+            Zero-Based Personal Finance Web Application engineered with Next.js and a zero-cost serverless Google Sheets ledger.
+          </p>
+          <p class="kash-description">
+            Kash enforces strict zero-based budget allocations ($Income &minus; $Allocations = 0) to eliminate unassigned capital. Features real-time transaction guards, Google OAuth session security, and dynamic edge API dispatching.
+          </p>
 
+          <!-- Feature Action Modals Buttons -->
+          <div class="kash-feature-buttons">
+            <button id="open-routing-modal" class="btn btn-primary-outline magnetic">
+              <span class="icon">&#9881;</span> Smart Routing Architecture
+            </button>
+            <button id="open-overdraft-modal" class="btn btn-primary-outline magnetic">
+              <span class="icon">&#128737;</span> Server-Side Overdraft Guard
+            </button>
+          </div>
+
+          <!-- 3D Flip Trigger Control -->
+          <div class="kash-flip-trigger-wrapper">
+            <button id="kash-flip-trigger" class="btn btn-primary magnetic">
+              <span class="icon">&#128472;</span> View Architecture
+            </button>
+            <span class="flip-hint-text">&lt; Or double-click the phone to flip &gt;</span>
+          </div>
+        </div>
+
+        <!-- Right Side: 3D Smartphone Chassis with Live Iframe -->
+        <div class="kash-phone-col">
+          <div class="flip-card-wrapper">
+            <div id="kash-card" class="flip-card magnetic">
+              <!-- Front Face: Live Mobile Application Iframe -->
+              <div class="flip-card-front">
+                <div class="smartphone-chassis">
+                  <div class="phone-speaker"></div>
+                  <div class="phone-camera"></div>
+                  <div class="phone-screen">
+                    <iframe src="https://kash-9ag4me4wh-nyx-c838.vercel.app/" 
+                            class="kash-iframe" 
+                            title="Kash Live Mobile App" 
+                            loading="lazy"></iframe>
+                  </div>
+                  <div class="phone-home-bar"></div>
+                </div>
+              </div>
+
+              <!-- Back Face: Architecture Breakdown -->
+              <div class="flip-card-back">
+                <div class="arch-container">
+                  <h3 class="arch-title">// KASH ARCHITECTURAL BREAKDOWN</h3>
+                  <div class="arch-grid-vertical">
+                    <div class="arch-node-item">
+                      <div class="arch-node-icon">⚡</div>
+                      <div>
+                        <h4>NextAuth.js</h4>
+                        <p>JWT session encryption and secure HTTP-only cookie authentication handling.</p>
+                      </div>
+                    </div>
+                    <div class="arch-node-item">
+                      <div class="arch-node-icon">☁️</div>
+                      <div>
+                        <h4>Google Cloud OAuth 2.0</h4>
+                        <p>Zero-trust identity verification and restricted scope token authorization.</p>
+                      </div>
+                    </div>
+                    <div class="arch-node-item">
+                      <div class="arch-node-icon">📊</div>
+                      <div>
+                        <h4>Google Sheets API</h4>
+                        <p>Communicates via Service Account credentials for persistent serverless ledger storage.</p>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="arch-flow-summary">
+                    <span class="accent-box">NextAuth.js</span> &rarr;
+                    <span class="accent-box">Google Cloud OAuth 2.0</span> &rarr;
+                    <span class="accent-box">Google Sheets API</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 3: My Experience (Timeline with Moving Scroll Tracker Dot & Cyber Glow Surge) -->
+    <section id="experience" class="experience-section">
+      <div class="section-header">
+        <span class="section-tag">// 03. CAREER CHRONOLOGY</span>
+        <h2 class="section-title glitch-title" data-text="MY EXPERIENCE">MY <span class="accent-text">EXPERIENCE</span></h2>
+        <p class="section-subtitle">Vertical 50/50 split timeline featuring a physically moving cyan scroll tracker dot and active node neon glow surges.</p>
+      </div>
+
+      <div class="split-timeline-container" id="timeline-container">
+        <!-- Static Dark Track (#333) -->
+        <div class="timeline-track-static"></div>
+
+        <!-- Active Cyan Fill Line (#00f0ff) -->
+        <div class="timeline-track-active" id="timeline-track-active"></div>
+
+        <!-- Physically Moving Cyan Scroll Tracker Dot -->
+        <div class="timeline-moving-dot" id="timeline-dot"></div>
+
+        <!-- Node 1 (Odd): Technical Officer | CBL -->
+        <div class="split-timeline-node odd-node cyber-glow-target">
+          <div class="node-half node-left-half text-right">
+            <div class="meta-block magnetic">
+              <div class="logo-placeholder">🏢</div>
+              <h3 class="role-title">Technical Officer</h3>
+              <h4 class="company-name">Ceylon Biscuits Limited</h4>
+              <span class="year-badge">Feb 2026 &ndash; Present</span>
+            </div>
+          </div>
+          <div class="node-half node-right-half text-left">
+            <div class="desc-block magnetic">
+              <p>Provide comprehensive enterprise IT support and infrastructure troubleshooting. Administer identity and access management using Microsoft Entra ID and monitor enterprise security posture via CrowdStrike endpoint alerts.</p>
+              <div class="tag-row">
+                <span class="tech-tag">Microsoft Entra ID</span>
+                <span class="tech-tag">CrowdStrike Falcon</span>
+                <span class="tech-tag">Enterprise IT Support</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Node 2 (Even): IT Support Officer | Pan Asia Bank -->
+        <div class="split-timeline-node even-node cyber-glow-target">
+          <div class="node-half node-left-half text-right">
+            <div class="desc-block magnetic">
+              <p>Delivered specialized remote and onsite technical support for core banking users. Executed installation, configuration, and continuous maintenance of core banking software, hardware, and specialized peripherals ensuring zero disruption to critical financial operations.</p>
+              <div class="tag-row">
+                <span class="tech-tag">Core Banking Support</span>
+                <span class="tech-tag">Remote Support</span>
+                <span class="tech-tag">Hardware Maintenance</span>
+              </div>
+            </div>
+          </div>
+          <div class="node-half node-right-half text-left">
+            <div class="meta-block magnetic">
+              <div class="logo-placeholder">🏦</div>
+              <h3 class="role-title">IT Support Officer</h3>
+              <h4 class="company-name">Pan Asia Banking Corporation</h4>
+              <span class="year-badge">Aug 2025 &ndash; Feb 2026</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Node 3 (Odd): CCTV & Network Technician -->
+        <div class="split-timeline-node odd-node cyber-glow-target">
+          <div class="node-half node-left-half text-right">
+            <div class="meta-block magnetic">
+              <div class="logo-placeholder">🛠️</div>
+              <h3 class="role-title">CCTV & Network Technician</h3>
+              <h4 class="company-name">Part-Time Contractor</h4>
+              <span class="year-badge">6 Months</span>
+            </div>
+          </div>
+          <div class="node-half node-right-half text-left">
+            <div class="desc-block magnetic">
+              <p>Handled physical infrastructure deployments, basic server troubleshooting, and continuous network connectivity maintenance.</p>
+              <div class="tag-row">
+                <span class="tech-tag">Physical Infrastructure</span>
+                <span class="tech-tag">Server Troubleshooting</span>
+                <span class="tech-tag">Network Maintenance</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- Section 4: Core Stack & Technical Competencies Matrix -->
+    <section id="core-stack" class="stack-matrix-section">
+      <div class="section-header">
+        <span class="section-tag">// 04. CORE TECHNICAL MATRIX</span>
+        <h2 class="section-title glitch-title" data-text="CORE TECHNICAL STACK">CORE TECHNICAL <span class="accent-text">STACK</span></h2>
+        <p class="section-subtitle">Structured breakdown across identity management, networking, cybersecurity, databases, and ITSM.</p>
+      </div>
+
+      <div class="stack-matrix-grid">
+        <!-- Category 1: Identity & Systems Administration -->
+        <div class="stack-card magnetic">
+          <div class="stack-card-header">
+            <span class="stack-icon">🪟</span>
+            <div class="stack-title-group">
+              <h3>Identity & Systems Administration</h3>
+              <span class="stack-subtitle">The Microsoft Ecosystem</span>
+            </div>
+          </div>
+          <ul class="stack-list">
+            <li><strong>Microsoft Entra ID & Active Directory:</strong> Identity governance, user provisioning, and AD DS domain services.</li>
+            <li><strong>Microsoft Intune:</strong> Endpoint management and automated security policy deployment.</li>
+            <li><strong>Windows Server & OS:</strong> Windows Server 2025 administration & enterprise OS troubleshooting.</li>
+            <li><strong>Automation:</strong> PowerShell scripting & custom suite development (e.g. <em>Nyx Optimizer</em>).</li>
+          </ul>
+          <div class="tag-row stack-card-tags">
+            <span class="tech-tag">Entra ID</span>
+            <span class="tech-tag">Active Directory</span>
+            <span class="tech-tag">Intune</span>
+            <span class="tech-tag">Server 2025</span>
+            <span class="tech-tag">PowerShell</span>
+          </div>
+        </div>
+
+        <!-- Category 2: Enterprise Networking -->
+        <div class="stack-card magnetic">
+          <div class="stack-card-header">
+            <span class="stack-icon">🌐</span>
+            <div class="stack-title-group">
+              <h3>Enterprise Networking</h3>
+              <span class="stack-subtitle">Cisco & Fortinet Backbone</span>
+            </div>
+          </div>
+          <ul class="stack-list">
+            <li><strong>Core Routing & Switching:</strong> Cisco enterprise networking (CCNP level), TCP/IP, DNS, and DHCP.</li>
+            <li><strong>Wireless Infrastructure:</strong> Enterprise switches, Wi-Fi configuration, and WAP management.</li>
+            <li><strong>Cloud Networking:</strong> Aviatrix Multicloud environments & AWS Cloud Essentials.</li>
+          </ul>
+          <div class="tag-row stack-card-tags">
+            <span class="tech-tag">Cisco CCNP</span>
+            <span class="tech-tag">TCP/IP & DNS</span>
+            <span class="tech-tag">WAPs</span>
+            <span class="tech-tag">Aviatrix</span>
+            <span class="tech-tag">AWS Cloud</span>
+          </div>
+        </div>
+
+        <!-- Category 3: Cybersecurity & Endpoint Protection -->
+        <div class="stack-card accent-stack-card magnetic">
+          <div class="stack-card-header">
+            <span class="stack-icon">🛡️</span>
+            <div class="stack-title-group">
+              <h3>Cybersecurity & Endpoint Protection</h3>
+              <span class="stack-subtitle">EDR & Defense Operations</span>
+            </div>
+          </div>
+          <ul class="stack-list">
+            <li><strong>Endpoint Detection & Response (EDR):</strong> CrowdStrike Falcon & Microsoft Defender for Endpoint.</li>
+            <li><strong>Perimeter Security:</strong> Fortinet FortiGate 7.6 firewall operations & security policy enforcement.</li>
+            <li><strong>Threat Analysis:</strong> Baseline malware analysis & Blue Team defense operations.</li>
+          </ul>
+          <div class="tag-row stack-card-tags">
+            <span class="tech-tag">CrowdStrike</span>
+            <span class="tech-tag">MS Defender</span>
+            <span class="tech-tag">FortiGate 7.6</span>
+            <span class="tech-tag">Blue Team</span>
+          </div>
+        </div>
+
+        <!-- Category 4: Databases (The Banking Backend) -->
+        <div class="stack-card magnetic">
+          <div class="stack-card-header">
+            <span class="stack-icon">🗄️</span>
+            <div class="stack-title-group">
+              <h3>Databases</h3>
+              <span class="stack-subtitle">The Banking Backend</span>
+            </div>
+          </div>
+          <ul class="stack-list">
+            <li><strong>Oracle Database:</strong> Management of Oracle DB instances and production data availability.</li>
+            <li><strong>Oracle SQL:</strong> High-performance SQL querying, data verification, and transaction auditing.</li>
+          </ul>
+          <div class="tag-row stack-card-tags">
+            <span class="tech-tag">Oracle DB</span>
+            <span class="tech-tag">Oracle SQL</span>
+            <span class="tech-tag">Data Auditing</span>
+          </div>
+        </div>
+
+        <!-- Category 5: ITSM & Hardware Asset Management -->
+        <div class="stack-card magnetic span-full">
+          <div class="stack-card-header">
+            <span class="stack-icon">⚙️</span>
+            <div class="stack-title-group">
+              <h3>ITSM & Hardware Asset Management</h3>
+              <span class="stack-subtitle">Service Desk & Banking Peripherals</span>
+            </div>
+          </div>
+          <ul class="stack-list inline-list">
+            <li><strong>Service Desk:</strong> ManageEngine for end-to-end incident lifecycles and SLA compliance.</li>
+            <li><strong>Asset Management:</strong> Full lifecycle management for laptops, desktops, basic servers, and smart TVs.</li>
+            <li><strong>Specialized Peripherals:</strong> Branch fingerprint scanners, self-service kiosks, and passbook/branch printers.</li>
+          </ul>
+          <div class="tag-row stack-card-tags">
+            <span class="tech-tag">ManageEngine</span>
+            <span class="tech-tag">Asset Lifecycle</span>
+            <span class="tech-tag">Fingerprint Scanners</span>
+            <span class="tech-tag">Banking Kiosks</span>
+            <span class="tech-tag">Branch Printers</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 5: Tactical Arsenal Grid (Rich Interactive Projects) -->
+    <section id="all-projects" class="arsenal-section">
+      <div class="section-header">
+        <span class="section-tag">// 05. TACTICAL ARSENAL</span>
+        <h2 class="section-title glitch-title" data-text="SPECIALIZED PROJECTS">SPECIALIZED <span class="accent-text">PROJECTS</span></h2>
+        <p class="section-subtitle">Security automation, encrypted transport networks, low-level OS virtualization, and minimalist architecture.</p>
+      </div>
+
+      <div class="arsenal-grid">
+        <!-- 01 Nyx Optimizer -->
+        <div class="project-card nyx-card magnetic" id="nyx-card">
+          <div class="card-number">01</div>
+          <div class="card-header">
+            <div class="card-tag">POWERSHELL / AUTOMATION</div>
+            <h3>Nyx Optimizer</h3>
+          </div>
+          <p class="card-desc">Windows enterprise performance & security hardening suite powered by automated PowerShell automation scripts.</p>
+          
+          <div class="terminal-window">
+            <div class="terminal-top">
+              <span class="dot red"></span><span class="dot yellow"></span><span class="dot green"></span>
+              <span class="term-title">Invoke-NyxOptimization.ps1</span>
+            </div>
+            <div class="terminal-body" id="nyx-terminal-body">
+              <div class="term-line term-prompt">PS C:\&gt; <span class="term-hover-hint">&lt; Hover card to run script &gt;</span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 02 V2Ray Infrastructure -->
+        <div class="project-card v2ray-card magnetic">
+          <div class="card-number">02</div>
+          <div class="card-header">
+            <div class="card-tag">NETWORKING / PROXY</div>
+            <h3>V2Ray Infrastructure</h3>
+          </div>
+          <p class="card-desc">Resilient anti-censorship communication conduit engineered with VMess/VLESS protocols and automated fallback rules.</p>
+          <div class="v2ray-specs">
+            <div class="spec-badge"><span>Lock</span> TLS 1.3 Encryption</div>
+            <div class="spec-badge"><span>Globe</span> Custom Domain Fronting</div>
+            <div class="spec-badge"><span>Route</span> Dynamic Proxy Routing</div>
+            <div class="spec-badge"><span>Shield</span> CDN WebSocket Obfuscation</div>
+          </div>
+          <div class="network-diagram">
+            <span class="node">Client</span> &mdash;&gt;
+            <span class="node accent-node">CDN / TLS</span> &mdash;&gt;
+            <span class="node accent-node">V2Ray Core</span> &mdash;&gt;
+            <span class="node">Open Web</span>
+          </div>
+        </div>
+
+        <!-- 03 Offensive Security Lab -->
+        <div class="project-card grub-card magnetic">
+          <div class="card-number">03</div>
+          <div class="card-header">
+            <div class="card-tag">VIRTUALIZATION / GRUB DUAL-BOOT</div>
+            <h3>Offensive Security Lab</h3>
+          </div>
+          <p class="card-desc">Bare-metal custom dual-boot environment engineered for dual workflows: performance optimization vs penetration testing.</p>
+
+          <!-- Split-screen Hover Container -->
+          <div class="split-screen-container" id="split-screen">
+            <div class="split-side left-side">
+              <div class="side-content">
+                <span class="os-icon">🪟</span>
+                <span class="os-title">Win11 ReviOS</span>
+                <span class="os-subtitle">Low-latency Dev & Gaming</span>
+                <ul class="os-list">
+                  <li>Telemetry Stripped</li>
+                  <li>Process Prioritization</li>
+                  <li>Custom Kernel Tweaks</li>
+                </ul>
+              </div>
+            </div>
+            <div class="split-side right-side">
+              <div class="side-content">
+                <span class="os-icon">🐉</span>
+                <span class="os-title">Kali Linux</span>
+                <span class="os-subtitle">Pentesting & Security Audit</span>
+                <ul class="os-list">
+                  <li>Metasploit & Burp Suite</li>
+                  <li>Zsh / Hyprland Dotfiles</li>
+                  <li>Wireless Auditing Stack</li>
+                </ul>
+              </div>
+            </div>
+            <div class="split-divider">
+              <span class="divider-handle">GRUB</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- 04 Immunisec.me -->
+        <div class="project-card immunisec-card magnetic">
+          <div class="card-number">04</div>
+          <div class="card-header">
+            <div class="card-tag">STATIC ARCHITECTURE</div>
+            <h3>Immunisec.me</h3>
+          </div>
+          <p class="card-desc">Zero-trust minimalist portfolio platform built with strict Content Security Policies and zero external client dependencies.</p>
+          <div class="architecture-specs">
+            <div class="spec-row"><span class="spec-label">Framework</span><span class="spec-val">Vanilla HTML5 / CSS3 / JS</span></div>
+            <div class="spec-row"><span class="spec-label">Security Headers</span><span class="spec-val">Strict CSP, HSTS, X-Frame</span></div>
+            <div class="spec-row"><span class="spec-label">Tracking</span><span class="spec-val">0 Cookies / 0 Telemetry</span></div>
+            <div class="spec-row"><span class="spec-label">Performance</span><span class="spec-val">100/100 Lighthouse score</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Section 6: Credential Highlights -->
+    <section id="credentials" class="credentials-section">
+      <div class="section-header">
+        <span class="section-tag">// 06. TOP-TIER CERTIFICATIONS</span>
+        <h2 class="section-title glitch-title" data-text="CREDENTIAL HIGHLIGHTS">CREDENTIAL <span class="accent-text">HIGHLIGHTS</span></h2>
+        <p class="section-subtitle">Minimalist grid emphasizing active industry certifications and verified credentials.</p>
+      </div>
+
+      <div class="credentials-grid">
+        <!-- Credential 1: Cisco CCNP Enterprise -->
+        <div class="cred-card magnetic">
+          <div class="cred-icon-header">
+            <span class="cred-badge-icon">🌐</span>
+            <span class="cred-issuer">CISCO NETWORKING ACADEMY</span>
+          </div>
+          <h3>Cisco CCNP Enterprise</h3>
+          <h4 class="cred-subtitle">Core Networking Certification</h4>
+          <p>Advanced enterprise networking covering dual-stack IPv4/IPv6 routing protocols, BGP, OSPF, infrastructure security, and SD-WAN architectures.</p>
+          <div class="cred-status"><span class="dot green"></span> Core Networking Credential</div>
+        </div>
+
+        <!-- Credential 2: Microsoft Applied Skills -->
+        <div class="cred-card accent-cred magnetic">
+          <div class="cred-icon-header">
+            <span class="cred-badge-icon">☁️</span>
+            <span class="cred-issuer">MICROSOFT LEARN</span>
+          </div>
+          <h3>Microsoft Applied Skills</h3>
+          <h4 class="cred-subtitle">Administer Active Directory Domain Services</h4>
+          <p>Verified domain controller deployment, AD DS identity administration, Group Policy enforcement, hybrid Azure AD sync, and access security.</p>
+          <div class="cred-status"><span class="dot green"></span> Verified AD DS Credential</div>
+        </div>
+
+        <!-- Credential 3: Fortinet FCA -->
+        <div class="cred-card magnetic">
+          <div class="cred-icon-header">
+            <span class="cred-badge-icon">🛡️</span>
+            <span class="cred-issuer">FORTINET TRAINING INSTITUTE</span>
+          </div>
+          <h3>Fortinet Certified Associate</h3>
+          <h4 class="cred-subtitle">Fortinet Certified Associate Cybersecurity</h4>
+          <p>Enterprise firewall administration, threat landscape evaluation, FortiGate security policy enforcement, and Zero Trust Access (ZTNA).</p>
+          <div class="cred-status"><span class="dot green"></span> Active Cybersecurity Credential</div>
+        </div>
+      </div>
+
+      <!-- Action Button for Credly -->
+      <div class="credly-action-wrapper">
+        <a href="https://www.credly.com/users/lasindu-chanuka" target="_blank" rel="noopener noreferrer" class="btn btn-primary credly-btn magnetic">
+          <span class="icon">&#127894;</span> View All Credentials on Credly &rarr;
+        </a>
+      </div>
+    </section>
+
+    <!-- Section 7: Contact Me -->
+    <section id="contact" class="contact-section">
+      <div class="section-header">
+        <span class="section-tag">// 07. GET IN TOUCH</span>
+        <h2 class="section-title glitch-title" data-text="CONTACT ME">CONTACT <span class="accent-text">ME</span></h2>
+        <p class="section-subtitle">Reach out for enterprise IT support, network security inquiries, or software collaboration.</p>
+      </div>
+
+      <div class="contact-grid">
+        <!-- Contact Form -->
+        <div class="contact-form-container">
+          <form id="contact-form" class="brutalist-form">
+            <div class="form-group">
+              <label for="form-name">// NAME</label>
+              <input type="text" id="form-name" name="name" class="form-input magnetic" placeholder="e.g. John Doe" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="form-email">// EMAIL</label>
+              <input type="email" id="form-email" name="email" class="form-input magnetic" placeholder="e.g. john@example.com" required>
+            </div>
+            
+            <div class="form-group">
+              <label for="form-message">// MESSAGE</label>
+              <textarea id="form-message" name="message" class="form-textarea magnetic" rows="5" placeholder="Enter your inquiry or request here..." required></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary form-submit-btn magnetic">
+              &gt; Send Message
+            </button>
+            <div id="form-status" class="form-status-msg"></div>
+          </form>
+        </div>
+
+        <!-- Contact Links / Social Icons -->
+        <div class="contact-links-container">
+          <h3 class="contact-links-title">// DIRECT CHANNELS</h3>
+          <p class="contact-links-desc">Connect directly via professional profiles or instant messaging channels:</p>
+
+          <div class="social-links-list">
+            <a href="https://github.com/heyitslasiya" target="_blank" rel="noopener noreferrer" class="social-link-item magnetic">
+              <span class="social-icon">🐙</span>
+              <div>
+                <span class="social-name">GitHub</span>
+                <span class="social-handle">github.com/heyitslasiya</span>
+              </div>
+              <span class="arrow">&rarr;</span>
+            </a>
+
+            <a href="https://www.linkedin.com/in/lasindu-chanuka" target="_blank" rel="noopener noreferrer" class="social-link-item magnetic">
+              <span class="social-icon">💼</span>
+              <div>
+                <span class="social-name">LinkedIn</span>
+                <span class="social-handle">linkedin.com/in/lasindu-chanuka</span>
+              </div>
+              <span class="arrow">&rarr;</span>
+            </a>
+
+            <a href="https://wa.me/94769450268" target="_blank" rel="noopener noreferrer" class="social-link-item magnetic">
+              <span class="social-icon">💬</span>
+              <div>
+                <span class="social-name">WhatsApp</span>
+                <span class="social-handle">wa.me/94769450268</span>
+              </div>
+              <span class="arrow">&rarr;</span>
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-brand">PORTFOLIO</div>
+      <p class="footer-copy">
+        &copy; 2026 Lasindu Chanuka. Built with Vanilla HTML5, CSS3, & Vanilla JS.
+      </p>
+      <a href="#hero" class="back-to-top magnetic">// Back to Top &uarr;</a>
+    </div>
+  </footer>
+
+  <!-- Modal 1: Smart Routing -->
+  <dialog id="smart-routing-modal" class="custom-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>// SMART ROUTING ARCHITECTURE</h3>
+        <button class="modal-close" id="close-routing-modal" aria-label="Close Modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Project Kash uses dynamic request routing in Next.js to minimize API round-trips and optimize throughput when interacting with serverless backends:</p>
+        <div class="modal-flowchart">
+          <div class="flow-step">
+            <span class="step-num">01</span>
+            <div><strong>Client Request Interception:</strong> Edge routes validate incoming payload schemas before passing data downstream.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">02</span>
+            <div><strong>Intelligent API Caching:</strong> Frequently accessed financial categories are cached with staggered revalidation triggers.</div>
+          </div>
+          <div class="flow-step">
+            <span class="step-num">03</span>
+            <div><strong>Batch Sync Queue:</strong> Multi-entry financial allocations are batched into single HTTP payloads to prevent hitting Google API rate limits.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </dialog>
+
+  <!-- Modal 2: Server-Side Validation (Overdraft Protection) -->
+  <dialog id="overdraft-modal" class="custom-modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h3>// SERVER-SIDE OVERDRAFT PROTECTION</h3>
+        <button class="modal-close" id="close-overdraft-modal" aria-label="Close Modal">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>In Zero-Based Budgeting, every dollar must equal zero ($Income - $Allocations = 0). Kash enforces this with strict server-side transaction assertions:</p>
+        <div class="code-box modal-code">
+          <pre><code><span class="keyword">async function</span> <span class="function">validateTransaction</span>(payload) {
+  <span class="keyword">const</span> currentBalance = <span class="keyword">await</span> <span class="function">fetchLiveLedgerBalance</span>();
+  <span class="keyword">if</span> (payload.amount &gt; currentBalance.unallocated) {
+    <span class="keyword">throw new</span> Error(<span class="string">"OVERDRAFT_PREVENTED: Zero-based budget allocation exceeded"</span>);
+  }
+  <span class="keyword">return await</span> <span class="function">commitToGoogleSheetsServiceAccount</span>(payload);
+}</code></pre>
+        </div>
+        <p class="modal-note">This mechanism prevents client-side tampering by guaranteeing that balance updates are verified server-side before persisting to the Google Sheets backend.</p>
+      </div>
+    </div>
+  </dialog>
+
+  <script src="script.js"></script>
 </body>
 </html>
