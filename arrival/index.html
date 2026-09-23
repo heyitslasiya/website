@@ -1,291 +1,507 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Official Petition...</title>
-    
-    <!-- This pulls in the free Confetti script -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            min-height: 100dvh; 
-            margin: 0;
-            background-color: #eaf4fc; 
-            font-family: 'Georgia', 'Times New Roman', serif;
-            text-align: center;
-            overflow: hidden;
-            padding: 15px;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent; 
-        }
-        .container {
-            background: #ffffff;
-            padding: 30px 20px;
-            border: 4px double #1e3a8a; 
-            border-radius: 5px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            max-width: 400px;
-        }
-        .header-seal {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        h1 {
-            color: #1e3a8a;
-            margin-top: 0;
-            margin-bottom: 5px;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        h2 {
-            color: #555;
-            font-size: 1rem;
-            font-style: italic;
-            margin-bottom: 20px;
-            font-weight: normal;
-        }
-        .terms-box {
-            background: #f4f9ff;
-            padding: 15px;
-            margin-bottom: 20px;
-            text-align: left;
-            border-top: 2px solid #1e3a8a;
-            border-bottom: 2px solid #1e3a8a;
-        }
-        .terms-box h3 {
-            margin-top: 0;
-            color: #1e3a8a;
-            font-size: 1rem;
-            text-align: center;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-        .terms-box ul {
-            padding-left: 20px;
-            margin-bottom: 15px;
-            margin-top: 0;
-            list-style-type: decimal;
-        }
-        .terms-box li {
-            margin-bottom: 10px;
-            color: #333;
-            font-size: 0.95rem;
-            line-height: 1.4;
-        }
-        .checkbox-container {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            gap: 10px;
-            font-weight: bold;
-            color: #1e3a8a;
-            font-size: 0.85rem;
-            cursor: pointer;
-            text-align: left;
-            margin-top: 15px;
-        }
-        .checkbox-container input {
-            width: 18px;
-            height: 18px;
-            accent-color: #2563eb; 
-            margin-top: 2px;
-        }
-        .buttons-wrapper {
-            position: relative;
-            min-height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .btn {
-            font-size: 1.1rem;
-            padding: 14px 30px;
-            border: none;
-            border-radius: 3px;
-            font-family: 'Georgia', serif;
-            font-weight: bold;
-            -webkit-user-select: none;
-            user-select: none; 
-            text-transform: uppercase;
-        }
-        #yesBtn {
-            background-color: #1e3a8a;
-            color: white;
-            transition: transform 0.2s, background-color 0.2s;
-            width: 100%;
-            max-width: 140px;
-            border: 1px solid #172554;
-        }
-        #yesBtn:disabled {
-            background-color: #93c5fd;
-            border-color: #60a5fa;
-            opacity: 0.7;
-        }
-        #noBtn {
-            background-color: #ecf0f1;
-            color: #7f8c8d;
-            width: 100%;
-            max-width: 140px;
-            border: 1px solid #bdc3c7;
-        }
-        .hidden {
-            display: none !important;
-        }
-        #successMessage {
-            font-size: 2rem;
-            color: #2563eb; 
-            animation: stampIn 0.5s ease-in;
-            text-transform: uppercase;
-            border: 3px solid #2563eb;
-            display: inline-block;
-            padding: 10px 20px;
-            transform: rotate(-5deg);
-        }
-        #successText {
-            font-size: 1.1rem;
-            color: #333;
-            animation: fadeIn 1.2s ease-out;
-            font-weight: bold;
-            padding: 20px 10px 0 10px;
-            line-height: 1.5;
-        }
-        .bonus-gif {
-            width: 100%;
-            max-width: 250px;
-            border-radius: 10px;
-            margin-top: 15px;
-            animation: fadeIn 2s ease-out; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        @keyframes stampIn {
-            0% { opacity: 0; transform: scale(2) rotate(-5deg); }
-            50% { opacity: 1; transform: scale(0.9) rotate(-5deg); }
-            100% { opacity: 1; transform: scale(1) rotate(-5deg); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Benvenuta in Italia, My Manika! ❤️🤌</title>
+  <meta name="description" content="A romantic travel companion web app for Hima in Bologna, Italy.">
+  <meta name="theme-color" content="#C85A32">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Playfair+Display:ital,wght@0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="container" id="mainContainer">
-        <div class="header-seal">⚖️</div>
-        <h1>Petition For Courtship</h1>
-        <h2>Filed under the Jurisdiction of Romance</h2>
-        
-        <div class="terms-box">
-            <h3>Binding Terms & Conditions</h3>
-            <ul>
-                <li><strong>Clause I:</strong> You agree to laugh at my bad jokes, regardless of evidentiary support for their humor.</li>
-                <li><strong>Clause II:</strong> You agree to jointly vacate the premises (leave together) after work.</li>
-                <li><strong>Clause III:</strong> You consent to being willfully spammed on WhatsApp.</li>
-                <li><strong>Clause IV:</strong> You agree to the provision of, at minimum, light hand-holding.</li>
-            </ul>
-            <label class="checkbox-container">
-                <input type="checkbox" id="agreeCheck" onchange="toggleYesButton()">
-                I, being of sound mind, have read and agree to be bound by these terms.
-            </label>
-        </div>
+  <!-- Main Mobile App Shell -->
+  <div class="app-container">
 
-        <div class="buttons-wrapper">
-            <button class="btn" id="yesBtn" onclick="sayYes()" disabled>I Object! (Wait, Yes!)</button>
-            <button class="btn" id="noBtn">I Decline</button>
-        </div>
+    <!-- Ambient Top Header Bar -->
+    <div class="top-banner">
+      <span class="moon-badge">🌙 Bologna, Italy 🍕 • 3 Months of Magic ✨</span>
     </div>
 
-    <div class="container hidden" id="successContainer">
-        <h1 id="successMessage">Motion Granted</h1>
-        <p id="successText">Contract Signed & Sealed! 📝⚖️<br><br>You'll get a kiss on the cheek as a signing bonus! 😘</p>
-        
-        <!-- Updated to target your .gif file -->
-        <img src="cat-kiss.gif" alt="Cat Kiss" class="bonus-gif">
+    <!-- 1. Hero / Welcome Section -->
+    <header class="hero-section" id="hero">
+      <div class="hero-badge">Amore Mio 💌🧸</div>
+      <h1 class="hero-headline">Benvenuta in Italia, My Manika! 💙✨🍝</h1>
+      <p class="hero-subheadline">
+        Welcome Back to Bologna! 🏰 Here's your little guide I made for you, you prolly hv better guides but I'll leave this here just in case 🍃.
+      </p>
+
+      <!-- Polaroid Frame for hero-couple.jpg -->
+      <div class="polaroid-wrapper">
+        <div class="washi-tape"></div>
+        <div class="polaroid-card">
+          <div class="polaroid-image-container">
+            <img id="polaroid-img" src="images/hero-couple.jpg" alt="Hima & Amore in Bologna" loading="eager">
+          </div>
+          <div class="polaroid-caption">
+            <span>Last time You were in Italy 📍</span>
+            <small>Back Under Italian Sun After 16 Years ☀️</small>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <!-- Navigation Pills / Anchors -->
+    <nav class="quick-nav" aria-label="Quick navigation">
+      <a href="#food" class="nav-pill active"><span class="pill-icon">🍝</span> Food & Drinks</a>
+      <a href="#sights" class="nav-pill"><span class="pill-icon">🏛️</span> Things to See</a>
+      <a href="#nature" class="nav-pill"><span class="pill-icon">🌿</span> Outdoors</a>
+      <a href="#lost" class="nav-pill lost-pill"><span class="pill-icon">🆘</span> If Lost</a>
+    </nav>
+
+    <main class="main-content">
+
+      <!-- 2. Food & Drinks (La Grassa) Section -->
+      <section class="guide-section" id="food">
+        <div class="section-header">
+          <span class="section-tag olive-tag">La Grassa 🧀 • Culinary Heart</span>
+          <h2 class="section-title">Food & Drinks (Treat yourself, Hima! 🤤🥂)</h2>
+          <p class="section-desc"> I know my cutie pie loves italian food. Eat lots of delicious foods in your stay 🍽️✨</p>
+        </div>
+
+        <div class="cards-stack">
+
+          <!-- Pasta: Osteria dell'Orsa -->
+          <article class="place-card" data-id="food-1">
+            <div class="card-media">
+              <span class="category-badge pasta-badge">🍝 Tagliatelle al Ragù</span>
+              <button class="favorite-btn" aria-label="Save to wishlist" onclick="toggleFavorite('food-1')">
+                <svg class="heart-icon" viewBox="0 0 24 24" width="22" height="22">
+                  <path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </button>
+              <img src="images/food-pasta.jpg" alt="Osteria dell'Orsa Tagliatelle" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3 class="card-name">Osteria Da Fortunata - Bologna 🍷</h3>
+              <p class="card-note">Famous for fresh, hand-rolled pasta, carbonara, cacio e pepe, and eggplant parmesan. My cutie loves Pasta ne! 🍝😋🤌</p>
+              <div class="card-actions">
+                <a href="https://share.google/ApdP1eEL0CRXygkzz" target="_blank" rel="noopener" class="action-btn primary-btn">
+                  📍 Open in Maps
+                </a>
+                <span class="vibe-tag">✨ Must-try dish! 🤤</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Pizza: Bianco Farina -->
+          <article class="place-card" data-id="food-2">
+            <div class="card-media">
+              <span class="category-badge pizza-badge">🍕 Neapolitan Pizza</span>
+              <button class="favorite-btn" aria-label="Save to wishlist" onclick="toggleFavorite('food-2')">
+                <svg class="heart-icon" viewBox="0 0 24 24" width="22" height="22">
+                  <path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </button>
+              <img src="images/food-pizza.jpg" alt="Bianco Farina Pizza" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3 class="card-name">Bianco Farina 🍅</h3>
+              <p class="card-note">Authentic Neapolitan-style pizza! Fluffy wood-fired crusts, rich tomato sauce, and fresh mozzarella. It's prolly better than Vito's, give me a rating later! 👀📝</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=Bianco+Farina+Bologna" target="_blank" rel="noopener" class="action-btn primary-btn">
+                  📍 Open in Maps
+                </a>
+                <span class="vibe-tag">🔥 Cheesy Perfection 🧀</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Gelato: Cremeria Santo Stefano -->
+          <article class="place-card" data-id="food-3">
+            <div class="card-media">
+              <span class="category-badge gelato-badge">🍦 Artisan Gelato</span>
+              <button class="favorite-btn" aria-label="Save to wishlist" onclick="toggleFavorite('food-3')">
+                <svg class="heart-icon" viewBox="0 0 24 24" width="22" height="22">
+                  <path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </button>
+              <img src="images/food-gelato.jpg" alt="Cremeria Santo Stefano Gelato" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3 class="card-name">Cremeria Santo Stefano 🍨</h3>
+              <p class="card-note">I hv never had gelato before, heard its better than ice cream ne 🥺 They hv dark chocolate and pistachio. I think you'll luv it! 🍫💚</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=Cremeria+Santo+Stefano+Bologna" target="_blank" rel="noopener" class="action-btn primary-btn">
+                  📍 Open in Maps
+                </a>
+                <span class="vibe-tag">💖 Pure Happiness ✨</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Coffee: Caffè Terzi -->
+          <article class="place-card" data-id="food-4">
+            <div class="card-media">
+              <span class="category-badge coffee-badge">☕ Italian Espresso</span>
+              <button class="favorite-btn" aria-label="Save to wishlist" onclick="toggleFavorite('food-4')">
+                <svg class="heart-icon" viewBox="0 0 24 24" width="22" height="22">
+                  <path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </button>
+              <img src="images/food-coffee.jpg" alt="Caffè Terzi Espresso" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3 class="card-name">Caffè Terzi 🥐</h3>
+              <p class="card-note">My cutie needs her morning coffee 🥱☕ They'll prolly do good tiramisu too, can drink matcha also ne! 🍵🌿</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=Caffè+Terzi+Bologna" target="_blank" rel="noopener" class="action-btn primary-btn">
+                  📍 Open in Maps
+                </a>
+                <span class="vibe-tag">☕ Morning Ritual ☀️</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 3. Things to See & Historic Spots -->
+      <section class="guide-section" id="sights">
+        <div class="section-header">
+          <span class="section-tag">La Dotta 🎓 & La Turrita 🗼 • History</span>
+          <h2 class="section-title">Things to See & Historic Spots 📸</h2>
+          <p class="section-desc">Italy has a ton of history, </br>
+julies ceaser, remeo n juliet unlike us. </br>
+pretty romantic city</p>
+        </div>
+
+        <div class="cards-stack">
+
+          <!-- Attraction 1: Piazza Maggiore -->
+          <article class="place-card interactive-card" onclick="openActivityModal('piazza-maggiore')">
+            <div class="card-media">
+              <span class="category-badge count-badge">✨ 164 Activities</span>
+              <img src="images/attraction-piazza-maggiore.jpg" alt="Piazza Maggiore" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div class="card-title-row">
+                <h3 class="card-name">Piazza Maggiore ⛲</h3>
+                <span class="tap-hint">Tap for activities ➔</span>
+              </div>
+              <p class="card-note">The central square. It's a cool looking old building 🏛️. I've seen you repost something like this before! 👀📱</p>
+              <div class="card-actions">
+                <span class="action-btn secondary-btn small-btn">
+                  💡 View 164 Activities
+                </span>
+                <span class="vibe-tag">Heart of Bologna ❤️</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Attraction 2: The Two Towers -->
+          <article class="place-card interactive-card" onclick="openActivityModal('two-towers')">
+            <div class="card-media">
+              <span class="category-badge count-badge">🗼 110 Activities</span>
+              <img src="images/attraction-two-towers.jpg" alt="The Two Towers" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div class="card-title-row">
+                <h3 class="card-name">The Two Towers (Asinelli & Garisenda)</h3>
+                <span class="tap-hint">Tap for activities ➔</span>
+              </div>
+              <p class="card-note">Two towers 🗼, Like Us 👩‍❤️‍👨. One Shorter... Like you! 🤭🤏❤️</p>
+              <div class="card-actions">
+                <span class="action-btn secondary-btn small-btn">
+                  💡 View 110 Activities
+                </span>
+                <span class="vibe-tag">Iconic Landmark 📍</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Attraction 3: Basilica di San Petronio -->
+          <article class="place-card interactive-card" onclick="openActivityModal('san-petronio')">
+            <div class="card-media">
+              <span class="category-badge count-badge">⛪ 61 Activities</span>
+              <img src="images/attraction-san-petronio.jpg" alt="Basilica di San Petronio" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div class="card-title-row">
+                <h3 class="card-name">Basilica di San Petronio 🕊️</h3>
+                <span class="tap-hint">Tap for activities ➔</span>
+              </div>
+              <p class="card-note">One of the oldest basilicas in the world. Has some cool arts 🎨, looks kinda peaceful 🧘‍♀️. Also beautiful! ✨</p>
+              <div class="card-actions">
+                <span class="action-btn secondary-btn small-btn">
+                  💡 View 61 Activities
+                </span>
+                <span class="vibe-tag">Historic Basilica 🕯️</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Attraction 4: Sanctuary of San Luca -->
+          <article class="place-card interactive-card" onclick="openActivityModal('san-luca')">
+            <div class="card-media">
+              <span class="category-badge count-badge">🌅 26 Activities</span>
+              <img src="images/attraction-san-luca.jpg" alt="Sanctuary of San Luca" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div class="card-title-row">
+                <h3 class="card-name">Sanctuary of Madonna di San Luca ⛰️</h3>
+                <span class="tap-hint">Tap for activities ➔</span>
+              </div>
+              <p class="card-note">Another church ⛪, don't hv anything cool ne, just old buildings 🧱. This one you need to climb a mountain for! 🏃‍♀️💨</p>
+              <div class="card-actions">
+                <span class="action-btn secondary-btn small-btn">
+                  💡 View 26 Activities
+                </span>
+                <span class="vibe-tag">Panoramic Walk 🌄</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Attraction 5: Teatro Anatomico -->
+          <article class="place-card interactive-card" onclick="openActivityModal('teatro-anatomico')">
+            <div class="card-media">
+              <span class="category-badge count-badge">🏛️ 7 Activities</span>
+              <img src="images/attraction-teatro-anatomico.jpg" alt="Teatro Anatomico" loading="lazy">
+            </div>
+            <div class="card-body">
+              <div class="card-title-row">
+                <h3 class="card-name">Teatro Anatomico / Archiginnasio 📚</h3>
+                <span class="tap-hint">Tap for activities ➔</span>
+              </div>
+              <p class="card-note">Think this will be your fav 🤓, My cute nerd! 🧠💖</p>
+              <div class="card-actions">
+                <span class="action-btn secondary-btn small-btn">
+                  💡 View 7 Activities
+                </span>
+                <span class="vibe-tag">Ancient University 🕰️</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 4. Nature, Parks, Mountains & Beach Escapes Section -->
+      <section class="guide-section" id="nature">
+        <div class="section-header">
+          <span class="section-tag olive-tag">Outdoors & Escapes 🌻</span>
+          <h2 class="section-title">Nature, Parks, Mountains & Beach Escapes 🌊🏔️</h2>
+          <p class="section-desc">Time is too precious to be spent looking at bricks and pages. </br>
+Go Out! Explore Nature! Get Some Fresh Air! 🦋🌳</p>
+        </div>
+
+        <div class="cards-stack">
+
+          <!-- Giardini Margherita -->
+          <article class="place-card" data-id="nat-1">
+            <div class="card-media">
+              <span class="category-badge olive-badge">🌿 City Park</span>
+              <button class="favorite-btn" aria-label="Save to wishlist" onclick="toggleFavorite('nat-1')">
+                <svg class="heart-icon" viewBox="0 0 24 24" width="22" height="22">
+                  <path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </button>
+              <img src="images/nature-giardini-margherita.jpg" alt="Giardini Margherita Park" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3 class="card-name">Giardini Margherita (City Park) 🌸</h3>
+              <p class="card-note">Looks So Beautiful ✨ Imagine reading your fav book 📖, sitting in the park! 🧺☀️</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=Giardini+Margherita+Bologna" target="_blank" rel="noopener" class="action-btn primary-btn">
+                  📍 Open in Maps
+                </a>
+                <span class="vibe-tag">🧺 Sunny Picnic 🥪</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Corno alle Scale -->
+          <article class="place-card" data-id="nat-4">
+            <div class="card-media">
+              <span class="category-badge olive-badge">⛰️ Apennine Mountain Trip</span>
+              <button class="favorite-btn" aria-label="Save to wishlist" onclick="toggleFavorite('nat-4')">
+                <svg class="heart-icon" viewBox="0 0 24 24" width="22" height="22">
+                  <path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </button>
+              <img src="images/nature-mountains.jpg" alt="Corno alle Scale Mountain" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3 class="card-name">Corno alle Scale (Apennines) 🏔️</h3>
+              <p class="card-note">Remember when I told you I want to take you on a hike? 🥾 This is better though, in winter it turns into a ski slope! ⛷️❄️ Even though I've never been, I Love Snow! ⛄💙</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=Corno+alle+Scale" target="_blank" rel="noopener" class="action-btn primary-btn">
+                  📍 Open in Maps
+                </a>
+                <span class="vibe-tag">🏔️ Alpine Getaway 🚠</span>
+              </div>
+            </div>
+          </article>
+
+          <!-- Rimini / Beach Escapes -->
+          <article class="place-card" data-id="nat-5">
+            <div class="card-media">
+              <span class="category-badge olive-badge">🌊 Adriatic Coast Beach (1 hr)</span>
+              <button class="favorite-btn" aria-label="Save to wishlist" onclick="toggleFavorite('nat-5')">
+                <svg class="heart-icon" viewBox="0 0 24 24" width="22" height="22">
+                  <path fill="currentColor" d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
+                </svg>
+              </button>
+              <img src="images/nature-beach-rimini.jpg" alt="Rimini Beach Adriatic Coast" loading="lazy">
+            </div>
+            <div class="card-body">
+              <h3 class="card-name">Rimini & Cervia Beach 🏖️</h3>
+              <p class="card-note">Remember the vid you sent me at the beach? 🐚 Was so hawtttt 🥵🔥. SHOULD recreate and send it to me! 📸😉</p>
+              <div class="card-actions">
+                <a href="https://maps.google.com/?q=Rimini+Spiaggia" target="_blank" rel="noopener" class="action-btn primary-btn">
+                  📍 Open in Maps
+                </a>
+                <span class="vibe-tag">🏖️ Sea & Sunset 🌅</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </section>
+
+      <!-- 5. "If You're Ever Lost" Section -->
+      <section class="guide-section lost-section" id="lost">
+        <div class="lost-card-header">
+          <div class="lost-badge">🆘 Safety & Care Package 🛡️</div>
+          <h2 class="lost-title">If You Ever Get Lost (Don't Panic, Cutie! 🥺🫂)</h2>
+          <p class="lost-subtitle">Keep this checklist handy whenever you feel a little confused. I'm right here with you! 🤝🗺️</p>
+        </div>
+
+        <ol class="lost-checklist">
+          <!-- Item 1 -->
+          <li class="checklist-item">
+            <span class="step-num">1</span>
+            <div class="step-content">
+              <strong>Take a Deep breath — you are safe! 😮‍💨</strong>
+              <p>You were born in Italy, it's a safe place! 🍝🫂</p>
+            </div>
+          </li>
+
+          <!-- Item 2 -->
+          <li class="checklist-item">
+            <span class="step-num">2</span>
+            <div class="step-content">
+              <strong>Find a café, order a coffee, and hop on their Wi-Fi ☕📶</strong>
+              <p>They hv free wifi at cafes. Ask for the wifi pass: <em>"Scusa, qual è la password del Wi-Fi?"</em> 🗝️</p>
+            </div>
+          </li>
+
+          <!-- Item 3 -->
+          <li class="checklist-item emergency-item">
+            <span class="step-num">3</span>
+            <div class="step-content">
+              <strong>Emergency number across Europe: Dial 112 🚨</strong>
+              <p>This works in all of Europe, even outside of Italy! 🌍🚓</p>
+              <a href="tel:112" class="emergency-call-btn">
+                📞 Tap to Dial 112
+              </a>
+            </div>
+          </li>
+
+          <!-- Item 4 -->
+          <li class="checklist-item italian-phrase-item">
+            <span class="step-num">4</span>
+            <div class="step-content">
+              <strong>Ask for help 🙋‍♀️:</strong>
+              <div class="phrase-box">
+                <p class="italian-text" id="italian-phrase">"Scusa, mi sono persa. Puoi aiutarmi?" 🥺</p>
+                <p class="translation-text">(Excuse me, I am lost. Can you help me?)</p>
+                
+                <div class="phrase-actions">
+                  <button class="phrase-btn" onclick="speakItalianPhrase()" id="tts-btn" aria-label="Listen to Italian phrase audio">
+                    🔊 Pronounce in Italian
+                  </button>
+                  <button class="phrase-btn" onclick="copyItalianPhrase()" id="copy-btn" aria-label="Copy Italian phrase to clipboard">
+                    📋 Copy Text
+                  </button>
+                </div>
+              </div>
+            </div>
+          </li>
+
+          <!-- Item 5 -->
+          <li class="checklist-item call-me-item">
+            <span class="step-num">5</span>
+            <div class="step-content">
+              <strong>Call me anytime — day or night, wake me up. I'll always answer! ❤️</strong>
+              <p>Never hesitate 🥺. I am always here for you, no matter what time it is! </br>
+Batman is here to rescue 🦇 </p>
+              <div class="call-me-actions">
+                <a href="tel:+94787133847" id="call-me-link" class="call-me-btn">
+                  📱 Call Right Now
+                </a>
+              </div>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+    </main>
+
+    <!-- 6. Romantic Footer -->
+    <footer class="romantic-footer">
+      <div class="footer-moon-icon">🌙</div>
+      <p class="footer-text">
+        Made with all my love for my Hima 💌🧸<br>
+        Remember, No matter how far apart we are, </br> we are always under the same moon 🌖💫. ❤️
+      </p>
+      <div class="footer-hearts">✨ 💖 ✨</div>
+    </footer>
+
+    <!-- Bottom Sticky Mobile Quick Navigation -->
+    <nav class="sticky-bottom-nav" aria-label="Mobile quick actions">
+      <a href="#food" class="sticky-nav-item">
+        <span class="icon">🍝</span>
+        <span class="label">Food</span>
+      </a>
+      <a href="#sights" class="sticky-nav-item">
+        <span class="icon">🏛️</span>
+        <span class="label">Sights</span>
+      </a>
+      <a href="#nature" class="sticky-nav-item">
+        <span class="icon">🌿</span>
+        <span class="label">Outdoors</span>
+      </a>
+      <a href="#lost" class="sticky-nav-item lost-highlight">
+        <span class="icon">🆘</span>
+        <span class="label">If Lost</span>
+      </a>
+    </nav>
+
+  </div>
+
+  <!-- Slide-up Mobile Bottom Drawer / Modal for Attractions Activities -->
+  <div class="modal-backdrop" id="modal-backdrop" onclick="closeActivityModal()"></div>
+  <div class="modal-sheet" id="modal-sheet">
+    <div class="modal-handle"></div>
+    <button class="modal-close-btn" onclick="closeActivityModal()" aria-label="Close modal">✕</button>
+
+    <div class="modal-header">
+      <span class="category-badge count-badge" id="modal-count-badge">Activities ✨</span>
+      <h3 class="modal-title" id="modal-title">Attraction Title</h3>
     </div>
 
-    <script>
-        const noBtn = document.getElementById('noBtn');
-        const yesBtn = document.getElementById('yesBtn');
+    <div class="modal-body">
+      <p class="modal-intro" id="modal-intro"></p>
+      <div class="activities-wrapper">
+        <h4 class="activities-heading">💡 Curated Things to Do:</h4>
+        <ul class="activities-list" id="modal-activities-list">
+          <!-- Populated dynamically via script.js -->
+        </ul>
+      </div>
+      <a href="#" id="modal-maps-link" target="_blank" rel="noopener" class="action-btn primary-btn full-width-btn">
+        📍 Open Location in Google Maps
+      </a>
+    </div>
+  </div>
 
-        function toggleYesButton() {
-            const checkBox = document.getElementById('agreeCheck');
-            yesBtn.disabled = !checkBox.checked;
-            
-            if(checkBox.checked) {
-                yesBtn.innerText = "I Consent";
-                yesBtn.style.transform = 'scale(1.05)';
-                setTimeout(() => yesBtn.style.transform = 'scale(1)', 200);
-            } else {
-                yesBtn.innerText = "I Object! (Wait, Yes!)";
-            }
-        }
-
-        function moveButton() {
-            const viewWidth = window.visualViewport ? window.visualViewport.width : window.innerWidth;
-            const viewHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-            
-            const padding = 30; 
-            const maxX = viewWidth - noBtn.offsetWidth - padding;
-            const maxY = viewHeight - noBtn.offsetHeight - padding;
-            
-            const randomX = Math.max(padding, Math.random() * maxX);
-            const randomY = Math.max(padding, Math.random() * maxY);
-            
-            noBtn.style.position = 'fixed';
-            noBtn.style.left = randomX + 'px';
-            noBtn.style.top = randomY + 'px';
-            noBtn.style.margin = '0';
-        }
-
-        noBtn.addEventListener('touchstart', function(e) {
-            e.preventDefault(); 
-            moveButton();
-        }, { passive: false });
-
-        noBtn.addEventListener('mouseover', moveButton);
-        noBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            moveButton();
-        });
-
-        function sayYes() {
-            // Hide main menu, show success menu
-            document.getElementById('mainContainer').classList.add('hidden');
-            document.getElementById('successContainer').classList.remove('hidden');
-
-            // Fire Blue & White Confetti
-            confetti({
-                particleCount: 150,
-                spread: 80,
-                origin: { y: 0.6 },
-                colors: ['#1e3a8a', '#2563eb', '#93c5fd', '#ffffff']
-            });
-
-            // Trigger Discord Webhook Notification
-            const webhookUrl = 'https://corsproxy.io/?' + encodeURIComponent('YOUR_DISCORD_WEBHOOK_URL_HERE'); 
-            
-            fetch(webhookUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    content: "🚨 **SHE SAID YES!** 🚨 The contract has been signed. Prepare the signing bonus! 😘"
-                })
-            }).catch(error => console.log('Notification hidden error'));
-        }
-    </script>
+  <script src="script.js"></script>
 </body>
 </html>
