@@ -1,291 +1,304 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Official Petition...</title>
-    
-    <!-- This pulls in the free Confetti script -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            min-height: 100dvh; 
-            margin: 0;
-            background-color: #eaf4fc; 
-            font-family: 'Georgia', 'Times New Roman', serif;
-            text-align: center;
-            overflow: hidden;
-            padding: 15px;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent; 
-        }
-        .container {
-            background: #ffffff;
-            padding: 30px 20px;
-            border: 4px double #1e3a8a; 
-            border-radius: 5px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            max-width: 400px;
-        }
-        .header-seal {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        h1 {
-            color: #1e3a8a;
-            margin-top: 0;
-            margin-bottom: 5px;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        h2 {
-            color: #555;
-            font-size: 1rem;
-            font-style: italic;
-            margin-bottom: 20px;
-            font-weight: normal;
-        }
-        .terms-box {
-            background: #f4f9ff;
-            padding: 15px;
-            margin-bottom: 20px;
-            text-align: left;
-            border-top: 2px solid #1e3a8a;
-            border-bottom: 2px solid #1e3a8a;
-        }
-        .terms-box h3 {
-            margin-top: 0;
-            color: #1e3a8a;
-            font-size: 1rem;
-            text-align: center;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-        .terms-box ul {
-            padding-left: 20px;
-            margin-bottom: 15px;
-            margin-top: 0;
-            list-style-type: decimal;
-        }
-        .terms-box li {
-            margin-bottom: 10px;
-            color: #333;
-            font-size: 0.95rem;
-            line-height: 1.4;
-        }
-        .checkbox-container {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            gap: 10px;
-            font-weight: bold;
-            color: #1e3a8a;
-            font-size: 0.85rem;
-            cursor: pointer;
-            text-align: left;
-            margin-top: 15px;
-        }
-        .checkbox-container input {
-            width: 18px;
-            height: 18px;
-            accent-color: #2563eb; 
-            margin-top: 2px;
-        }
-        .buttons-wrapper {
-            position: relative;
-            min-height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .btn {
-            font-size: 1.1rem;
-            padding: 14px 30px;
-            border: none;
-            border-radius: 3px;
-            font-family: 'Georgia', serif;
-            font-weight: bold;
-            -webkit-user-select: none;
-            user-select: none; 
-            text-transform: uppercase;
-        }
-        #yesBtn {
-            background-color: #1e3a8a;
-            color: white;
-            transition: transform 0.2s, background-color 0.2s;
-            width: 100%;
-            max-width: 140px;
-            border: 1px solid #172554;
-        }
-        #yesBtn:disabled {
-            background-color: #93c5fd;
-            border-color: #60a5fa;
-            opacity: 0.7;
-        }
-        #noBtn {
-            background-color: #ecf0f1;
-            color: #7f8c8d;
-            width: 100%;
-            max-width: 140px;
-            border: 1px solid #bdc3c7;
-        }
-        .hidden {
-            display: none !important;
-        }
-        #successMessage {
-            font-size: 2rem;
-            color: #2563eb; 
-            animation: stampIn 0.5s ease-in;
-            text-transform: uppercase;
-            border: 3px solid #2563eb;
-            display: inline-block;
-            padding: 10px 20px;
-            transform: rotate(-5deg);
-        }
-        #successText {
-            font-size: 1.1rem;
-            color: #333;
-            animation: fadeIn 1.2s ease-out;
-            font-weight: bold;
-            padding: 20px 10px 0 10px;
-            line-height: 1.5;
-        }
-        .bonus-gif {
-            width: 100%;
-            max-width: 250px;
-            border-radius: 10px;
-            margin-top: 15px;
-            animation: fadeIn 2s ease-out; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        @keyframes stampIn {
-            0% { opacity: 0; transform: scale(2) rotate(-5deg); }
-            50% { opacity: 1; transform: scale(0.9) rotate(-5deg); }
-            100% { opacity: 1; transform: scale(1) rotate(-5deg); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, viewport-fit=cover">
+  <title>Cozy Care Package for Hima 🌸</title>
+  
+  <!-- Google Fonts: Warm Serif for headings, Soft Sans-serif for body -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,400&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+  
+  <!-- External stylesheet -->
+  <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
-    <div class="container" id="mainContainer">
-        <div class="header-seal">⚖️</div>
-        <h1>Petition For Courtship</h1>
-        <h2>Filed under the Jurisdiction of Romance</h2>
-        
-        <div class="terms-box">
-            <h3>Binding Terms & Conditions</h3>
-            <ul>
-                <li><strong>Clause I:</strong> You agree to laugh at my bad jokes, regardless of evidentiary support for their humor.</li>
-                <li><strong>Clause II:</strong> You agree to jointly vacate the premises (leave together) after work.</li>
-                <li><strong>Clause III:</strong> You consent to being willfully spammed on WhatsApp.</li>
-                <li><strong>Clause IV:</strong> You agree to the provision of, at minimum, light hand-holding.</li>
-            </ul>
-            <label class="checkbox-container">
-                <input type="checkbox" id="agreeCheck" onchange="toggleYesButton()">
-                I, being of sound mind, have read and agree to be bound by these terms.
-            </label>
+  <div class="app-container">
+
+    <!-- Top Control Header: Care Badge & Bedtime Toggle -->
+    <header class="top-bar">
+      <div class="care-badge">
+        <span class="badge-icon">🌸</span> Hima's Care Package
+      </div>
+      <button class="night-toggle-btn" id="night-toggle" aria-label="Toggle Bedtime Mode" title="Toggle Bedtime Mode">
+        🌙
+      </button>
+    </header>
+
+    <!-- 1. HERO SECTION ("THE CHECK-IN") -->
+    <section class="card hero-card fade-in">
+      <span class="section-tag sage-tag">Made With Love For Hima ✨</span>
+      <h1 class="hero-title">I know today is rough, My Hima...</h1>
+      <p class="hero-description">
+        Take a slow, deep breath and wrap yourself under the covers. You don’t have to do anything else today except stay warm, rest, and let you feel good hima. Here is your cozy safe space.
+      </p>
+
+      <!-- Interactive Check-In for Hima -->
+      <div class="checkin-box">
+        <div class="checkin-question">
+          <span class="pulse-heart">💖</span> How are you feeling today, My Manika?
         </div>
-
-        <div class="buttons-wrapper">
-            <button class="btn" id="yesBtn" onclick="sayYes()" disabled>I Object! (Wait, Yes!)</button>
-            <button class="btn" id="noBtn">I Decline</button>
+        <div class="mood-options-grid">
+          <button class="mood-btn" data-mood="crampy">
+            <span>🧸 Need to snuggle</span>
+            <span class="arrow">➔</span>
+          </button>
+          <button class="mood-btn" data-mood="treats">
+            <span>🍫 Craving Snaks</span>
+            <span class="arrow">➔</span>
+          </button>
+          <button class="mood-btn" data-mood="tired">
+            <span>☁️ Exhausted, ready to nap</span>
+            <span class="arrow">➔</span>
+          </button>
+          <button class="mood-btn" data-mood="emotional">
+            <span>🥺 Feeling emotional & overwhelmed</span>
+            <span class="arrow">➔</span>
+          </button>
         </div>
-    </div>
+        <div class="mood-feedback-box" id="mood-feedback"></div>
+      </div>
+    </section>
 
-    <div class="container hidden" id="successContainer">
-        <h1 id="successMessage">Motion Granted</h1>
-        <p id="successText">Contract Signed & Sealed! 📝⚖️<br><br>You'll get a kiss on the cheek as a signing bonus! 😘</p>
-        
-        <!-- Updated to target your .gif file -->
-        <img src="cat-kiss.gif" alt="Cat Kiss" class="bonus-gif">
-    </div>
+    <!-- 2. THE AUDIO VIBE (SPOTIFY PLAYLIST) -->
+    <section class="card spotify-card fade-in">
+      <div class="card-header-flex">
+        <h2 class="card-title">
+          <span>🎧</span> The Audio Vibe
+        </h2>
+        <span class="badge-pill lavender-badge">Lo-Fi & Cozy</span>
+      </div>
+      <p class="card-subtitle">
+    Found Early 2000s Soft PoP Playlist, Think you might like
+      </p>
+      
+      <div class="spotify-embed-wrapper">
+        <iframe 
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1DX4UZCW3u80le?utm_source=generator&theme=0&si=8197bb975c0f4a6c" 
+          width="100%" 
+          height="152" 
+          allowfullscreen="" 
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+          loading="lazy">
+        </iframe>
+      </div>
+    </section>
 
-    <script>
-        const noBtn = document.getElementById('noBtn');
-        const yesBtn = document.getElementById('yesBtn');
+    <!-- 3. THE BOLOGNA SURVIVAL GUIDE (LOCAL TIPS WITH CARD IMAGES) -->
+    <section class="bologna-guide-section fade-in">
+      <div class="guide-header">
+        <span class="section-tag pink-tag">Bologna Comfort Map 📍</span>
+        <h2>The Bologna Survival Guide Part 2</h2>
+        <p class="guide-intro">Did some research and found some places that would help</p>
+      </div>
 
-        function toggleYesButton() {
-            const checkBox = document.getElementById('agreeCheck');
-            yesBtn.disabled = !checkBox.checked;
-            
-            if(checkBox.checked) {
-                yesBtn.innerText = "I Consent";
-                yesBtn.style.transform = 'scale(1.05)';
-                setTimeout(() => yesBtn.style.transform = 'scale(1)', 200);
-            } else {
-                yesBtn.innerText = "I Object! (Wait, Yes!)";
-            }
-        }
+      <!-- Card 1: Dark Chocolate Fix -->
+      <div class="treat-card fade-in">
+        <div class="card-image-wrapper">
+          <img src="choco.jpg" alt="Majani Chocolate" class="card-top-img" loading="lazy">
+        </div>
+        <div class="treat-card-content">
+          <div class="treat-header">
+            <div class="treat-icon sage-bg">🍫</div>
+            <div>
+              <h3 class="treat-title">The Dark Chocolate</h3>
+              <div class="treat-address">📍 Majani 1796 Cioccolato</div>
+            </div>
+          </div>
+          <div class="treat-subaddress">Via de' Carbonesi, 5</div>
+          <p class="treat-text">
+            According to google this is the best place to get dark chocolates in bologna. High cocoa dark chocolate is naturally packed with magnesium and endorphin boosters, Should help relax tense muscles and ease cramps!
+          </p>
+          <a href="https://maps.google.com/?cid=6425660389481389667" target="_blank" rel="noopener noreferrer" class="btn-maps">
+            <span>Take Me There (Google Maps)</span> ➔
+          </a>
+        </div>
+      </div>
 
-        function moveButton() {
-            const viewWidth = window.visualViewport ? window.visualViewport.width : window.innerWidth;
-            const viewHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-            
-            const padding = 30; 
-            const maxX = viewWidth - noBtn.offsetWidth - padding;
-            const maxY = viewHeight - noBtn.offsetHeight - padding;
-            
-            const randomX = Math.max(padding, Math.random() * maxX);
-            const randomY = Math.max(padding, Math.random() * maxY);
-            
-            noBtn.style.position = 'fixed';
-            noBtn.style.left = randomX + 'px';
-            noBtn.style.top = randomY + 'px';
-            noBtn.style.margin = '0';
-        }
+      <!-- Card 2: Matcha, Not Mocha -->
+      <div class="treat-card fade-in">
+        <div class="card-image-wrapper">
+          <img src="caffe.jpg" alt="Caffe Terzi" class="card-top-img" loading="lazy">
+        </div>
+        <div class="treat-card-content">
+          <div class="treat-header">
+            <div class="treat-icon lavender-bg">🍵</div>
+            <div>
+              <h3 class="treat-title">Matcha, Not Mocha</h3>
+              <div class="treat-address">📍 Mood24 & Artisan Tea Spots</div>
+            </div>
+          </div>
+          <div class="treat-subaddress">Via Giuseppe Grabinski (Mood24)</div>
+          <p class="treat-text">
+            I know my cutie loves coffe but caffeine is really bad for cramps. Promise me not to drink em, Instead, head to <strong>Mood24</strong> for authentic matcha or <strong>Caffè Terzi</strong>
+          </p>
+          <a href="https://maps.google.com/?cid=10355191014907962690" target="_blank" rel="noopener noreferrer" class="btn-maps" style="margin-bottom: 0.85rem;">
+            <span>Take Me to Mood24</span> ➔
+          </a>
 
-        noBtn.addEventListener('touchstart', function(e) {
-            e.preventDefault(); 
-            moveButton();
-        }, { passive: false });
+          <!-- Alternative Tea Spot -->
+          <div class="alt-spot-box">
+            <div class="alt-spot-heading">✨ Amazing Alternative Tea Spot</div>
+            <div class="alt-spot-item">
+              <span>Caffè Terzi</span>
+              <a href="https://maps.google.com/?cid=5615151256565668595" target="_blank" rel="noopener noreferrer" class="btn-alt-map">Maps ➔</a>
+            </div>
+          </div>
+        </div>
+      </div>
 
-        noBtn.addEventListener('mouseover', moveButton);
-        noBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            moveButton();
-        });
+      <!-- Card 3: Fresh Fruit Bounty -->
+      <div class="treat-card fade-in">
+        <div class="card-image-wrapper">
+          <img src="https://images.unsplash.com/photo-1610832958506-aa56368176cf?auto=format&fit=crop&w=400&q=80" alt="Fresh Berries" class="card-top-img" loading="lazy">
+        </div>
+        <div class="treat-card-content">
+          <div class="treat-header">
+            <div class="treat-icon pink-bg">🍓</div>
+            <div>
+              <h3 class="treat-title">Fresh Fruits</h3>
+              <div class="treat-address">📍 Local Mercato / Favorite Vendor</div>
+            </div>
+          </div>
+          <p class="treat-text">
+            Don't eat junk foods. Eat some fruis maybe dipped in dark chocolate , most hydrating fruits (like sweet strawberries, watermelon, bananas, or blueberries). Potassium and water rich fruits help keep cramping muscles hydrated and relaxed!
+          </p>
+        </div>
+      </div>
+    </section>
 
-        function sayYes() {
-            // Hide main menu, show success menu
-            document.getElementById('mainContainer').classList.add('hidden');
-            document.getElementById('successContainer').classList.remove('hidden');
+    <!-- 4. THE CUDDLE PRESCRIPTION & INTERACTIVE STITCH (LIGHTWEIGHT & PERFORMANT) -->
+    <section class="cuddle-banner-section fade-in" id="stitch-section">
+      <div class="rx-badge">Doctor Las: Official Rest Order</div>
+      <h2 class="cuddle-title">The Cuddle Prescription</h2>
+      <p class="cuddle-desc">
+        My sweet Angel is officially ordered to take the entire day off, stay wrapped in blankets, and do nothing but rest!
+      </p>
 
-            // Fire Blue & White Confetti
-            confetti({
-                particleCount: 150,
-                spread: 80,
-                origin: { y: 0.6 },
-                colors: ['#1e3a8a', '#2563eb', '#93c5fd', '#ffffff']
-            });
+      <!-- Centered Stitch Image -->
+      <div class="stitch-image-container">
+        <img 
+          src="stich.jpg" 
+          alt="Cute Stitch wrapped in blanket" 
+          id="stitch-img" 
+          class="stitch-image"
+          title="Tap Stitch for movie night!"
+        />
+      </div>
 
-            // Trigger Discord Webhook Notification
-            const webhookUrl = 'https://corsproxy.io/?' + encodeURIComponent('YOUR_DISCORD_WEBHOOK_URL_HERE'); 
-            
-            fetch(webhookUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    content: "🚨 **SHE SAID YES!** 🚨 The contract has been signed. Prepare the signing bonus! 😘"
-                })
-            }).catch(error => console.log('Notification hidden error'));
-        }
-    </script>
+      <button class="btn-stitch-pill" id="stitch-btn">
+        <span>✨ Summon Stitch & Start Movie Night</span>
+      </button>
+    </section>
+
+    <!-- 5. THE WATCHLIST (DIGITAL MOVIE TICKETS WITH SHOW POSTERS) -->
+    <section class="watchlist-section fade-in" id="watchlist-section">
+      <div class="watchlist-header">
+        <span class="section-tag lavender-tag">Cozy Movie Night 🎬</span>
+        <h2>The Watchlist</h2>
+        <p class="watchlist-intro">Few of handpicked movies and shows with places to get them easy, Don't want my cutie pie to stress one bit..</p>
+      </div>
+
+      <!-- Ticket 1 -->
+      <div class="polaroid-ticket fade-in">
+        <div class="ticket-header-bar">
+          <span class="ticket-category">🎟️ Ticket #01 • K-Drama Fantasy</span>
+          <span class="ticket-star-badge">✨ Comfort Pick</span>
+        </div>
+        <div class="poster-image-wrapper">
+          <img src="as.jpg" alt="Alchemy of Souls" class="movie-poster-img" loading="lazy">
+        </div>
+        <div class="ticket-body">
+          <h3 class="movie-name">Alchemy of Souls (Season 2)</h3>
+          <div class="movie-note">
+            <span class="heart-icon">💖</span> "Since I know you just finished Season 1!"
+          </div>
+          <a href="https://www.movy.sx/tv/135157/2/1" target="_blank" rel="noopener noreferrer" class="btn-watch-link">
+            <span>Watch Now</span> 🎬
+          </a>
+        </div>
+      </div>
+
+      <!-- Ticket 2 -->
+      <div class="polaroid-ticket fade-in">
+        <div class="ticket-header-bar">
+          <span class="ticket-category">🎟️ Ticket #02 • Modern Romance</span>
+          <span class="ticket-star-badge">⭐ Personal Favorite</span>
+        </div>
+        <div class="poster-image-wrapper">
+          <img src="500.jpg" alt="500 Days of Summer" class="movie-poster-img" loading="lazy">
+        </div>
+        <div class="ticket-body">
+          <h3 class="movie-name">500 Days of Summer</h3>
+          <div class="movie-note">
+            <span class="heart-icon">💖</span> "My personal pick for you"
+          </div>
+          <a href="https://www.movy.sx/movie/19913" target="_blank" rel="noopener noreferrer" class="btn-watch-link">
+            <span>Watch Now</span> 🎬
+          </a>
+        </div>
+      </div>
+
+      <!-- Ticket 3 -->
+      <div class="polaroid-ticket fade-in">
+        <div class="ticket-header-bar">
+          <span class="ticket-category">🎟️ Ticket #03 • Healing Drama</span>
+          <span class="ticket-star-badge">🌿 Warm Hug</span>
+        </div>
+        <div class="poster-image-wrapper">
+          <img src="it.jpg" alt="Its Okay to Not Be Okay" class="movie-poster-img" loading="lazy">
+        </div>
+        <div class="ticket-body">
+          <h3 class="movie-name">It's Okay to Not Be Okay</h3>
+          <div class="movie-note">
+            <span class="heart-icon">💖</span> "I Loved This"
+          </div>
+          <a href="https://www.movy.sx/tv/96462" target="_blank" rel="noopener noreferrer" class="btn-watch-link">
+            <span>Watch Now</span> 🎬
+          </a>
+        </div>
+      </div>
+
+      <!-- Ticket 4 -->
+      <div class="polaroid-ticket fade-in">
+        <div class="ticket-header-bar">
+          <span class="ticket-category">🎟️ Ticket #04 • Pure Nostalgia</span>
+          <span class="ticket-star-badge">🧚 Magical Comfort</span>
+        </div>
+        <div class="poster-image-wrapper">
+          <img src="winx.jpg" alt="Winx Club" class="movie-poster-img" loading="lazy">
+        </div>
+        <div class="ticket-body">
+          <h3 class="movie-name">Winx Club</h3>
+          <div class="movie-note">
+            <span class="heart-icon">💖</span> "Would bring a lot of memories back"
+          </div>
+          <a href="https://www.movy.sx/tv/1848" target="_blank" rel="noopener noreferrer" class="btn-watch-link">
+            <span>Watch Now</span> 🎬
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. FOOTER / FINAL NOTE -->
+    <footer class="footer-card fade-in">
+      <div class="footer-flower">🌸</div>
+      <h2 class="footer-title">Rest up & feel better soon, My Manika 💖 </h2>
+      <p class="footer-message">
+        Even Though I cant be there with you,
+There's everything you need already there. Cuddle Stitch, sip your matcha, and give yourself all the grace in the world today. You are loved!
+      </p>
+
+      <a href="https://wa.me/+94787133847" target="_blank" rel="noopener noreferrer" class="btn-cta-whatsapp">
+        <span>If you need anything at all, let me know</span> 💌
+      </a>
+    </footer>
+
+  </div>
+
+  <!-- External JavaScript -->
+  <script src="script.js"></script>
 </body>
 </html>

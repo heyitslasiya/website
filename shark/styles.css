@@ -1,0 +1,871 @@
+/* ==========================================================================
+   HIMA'S COZY CARE PACKAGE — STYLESHEET (LIGHTWEIGHT & PERFORMANT WITH IMAGES)
+   Aesthetic: Soft pastels (blush pinks, warm creams, lavenders, sage greens)
+   Target Device: Optimized for iPhone 13 Mini (375px by 812px)
+   ========================================================================== */
+
+:root {
+  /* Color Palette Variables */
+  --bg-gradient: linear-gradient(180deg, #FDF5F3 0%, #FAF0EC 35%, #F4ECF5 70%, #F0F5F1 100%);
+  --card-bg: rgba(255, 255, 255, 0.88);
+  --card-border: rgba(235, 194, 204, 0.48);
+  --card-shadow: 0 10px 30px -5px rgba(110, 59, 70, 0.07);
+  
+  /* Text Colors */
+  --text-main: #4A2E35;
+  --text-muted: #7A5C65;
+  --text-light: #9E7D87;
+  
+  /* Accent Colors */
+  --pink-soft: #F8E1E7;
+  --pink-primary: #E8A3B1;
+  --pink-deep: #D47488;
+  
+  --lavender-soft: #EDE8F8;
+  --lavender-primary: #C5B6E8;
+  --lavender-deep: #8E7AB5;
+  
+  --sage-soft: #E3EBE4;
+  --sage-primary: #B2D1B6;
+  --sage-deep: #6B8E6D;
+  
+  --stitch-blue: #5B92E5;
+  --stitch-bg-gradient: linear-gradient(135deg, #E8F0FE 0%, #D2E3FC 50%, #E6EEFA 100%);
+  
+  /* Typography */
+  --font-heading: 'Playfair Display', Georgia, serif;
+  --font-body: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+  
+  /* Radii */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 28px;
+  --radius-pill: 999px;
+  
+  /* Safe Areas */
+  --safe-top: env(safe-area-inset-top, 0px);
+  --safe-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+/* Cozy Bedtime / Night Mode Colors */
+body.night-mode {
+  --bg-gradient: linear-gradient(180deg, #211921 0%, #1A141A 40%, #231826 70%, #1B231D 100%);
+  --card-bg: rgba(35, 26, 33, 0.88);
+  --card-border: rgba(184, 120, 137, 0.28);
+  --card-shadow: 0 10px 30px -5px rgba(0, 0, 0, 0.4);
+  
+  --text-main: #F7EAEF;
+  --text-muted: #D1B8C2;
+  --text-light: #A58B95;
+  
+  --pink-soft: #3D262F;
+  --pink-primary: #DF8A9C;
+  --pink-deep: #F0A3B2;
+  
+  --lavender-soft: #2D243B;
+  --lavender-primary: #9F8DC7;
+  
+  --sage-soft: #223326;
+  --sage-primary: #7FA582;
+}
+
+/* -------------------------------------------------------------
+   RESET & BASE STYLES
+------------------------------------------------------------- */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background: var(--bg-gradient);
+  background-attachment: fixed;
+  color: var(--text-main);
+  line-height: 1.6;
+  overflow-x: hidden;
+  min-height: 100vh;
+  padding-top: var(--safe-top);
+  padding-bottom: calc(var(--safe-bottom) + 2rem);
+  transition: background 0.4s ease, color 0.4s ease;
+}
+
+/* -------------------------------------------------------------
+   IMAGE GLOBAL STYLING (Soft rounded corners & subtle shadow)
+------------------------------------------------------------- */
+img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+  box-shadow: 0 4px 14px rgba(110, 59, 70, 0.08);
+  display: block;
+}
+
+/* -------------------------------------------------------------
+   CONTAINER OPTIMIZED FOR IPHONE 13 MINI (375px × 812px)
+------------------------------------------------------------- */
+.app-container {
+  width: 100%;
+  max-width: 440px;
+  margin: 0 auto;
+  padding: 1.25rem 1.15rem;
+  position: relative;
+}
+
+/* Top Control Bar */
+.top-bar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding: 0.25rem 0.25rem;
+}
+
+.care-badge {
+  background: var(--pink-soft);
+  color: var(--text-main);
+  font-size: 0.78rem;
+  font-weight: 600;
+  padding: 0.4rem 0.9rem;
+  border-radius: var(--radius-pill);
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  border: 1px solid var(--card-border);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+
+.night-toggle-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  color: var(--text-main);
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.15rem;
+  cursor: pointer;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.night-toggle-btn:active {
+  transform: scale(0.92);
+}
+
+/* -------------------------------------------------------------
+   CARD & GLASSMORPHISM BASE
+------------------------------------------------------------- */
+.card {
+  background: var(--card-bg);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-md);
+  padding: 1.4rem 1.25rem;
+  margin-bottom: 1.5rem;
+  box-shadow: var(--card-shadow);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  position: relative;
+}
+
+/* Scroll Fade In */
+.fade-in {
+  opacity: 0;
+  transform: translateY(16px);
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1), transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.fade-in.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typography */
+h1, h2, h3 {
+  font-family: var(--font-heading);
+  font-weight: 600;
+  line-height: 1.28;
+  color: var(--text-main);
+}
+
+h1 {
+  font-size: 1.8rem;
+  margin-bottom: 0.65rem;
+  letter-spacing: -0.01em;
+}
+
+h2 {
+  font-size: 1.4rem;
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+p {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  margin-bottom: 1rem;
+}
+
+.section-tag {
+  text-transform: uppercase;
+  font-size: 0.72rem;
+  letter-spacing: 0.11em;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+  display: block;
+}
+
+.pink-tag { color: var(--pink-deep); }
+.sage-tag { color: var(--sage-deep); }
+.lavender-tag { color: var(--lavender-deep); }
+
+.badge-pill {
+  font-size: 0.72rem;
+  font-weight: 700;
+  padding: 0.25rem 0.65rem;
+  border-radius: var(--radius-pill);
+  display: inline-block;
+}
+
+.lavender-badge {
+  background: var(--lavender-soft);
+  color: var(--lavender-deep);
+}
+
+body.night-mode .lavender-badge {
+  color: var(--lavender-primary);
+}
+
+/* -------------------------------------------------------------
+   SECTION 1: HERO ("THE CHECK-IN")
+------------------------------------------------------------- */
+.hero-card {
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.92) 0%, rgba(248, 225, 231, 0.45) 50%, rgba(227, 235, 228, 0.4) 100%);
+  border: 1px solid var(--card-border);
+}
+
+body.night-mode .hero-card {
+  background: linear-gradient(135deg, rgba(35, 26, 33, 0.92) 0%, rgba(61, 38, 47, 0.4) 100%);
+}
+
+.hero-title {
+  font-size: 1.85rem;
+  color: var(--text-main);
+  margin-bottom: 0.75rem;
+}
+
+.hero-description {
+  font-size: 0.96rem;
+  line-height: 1.65;
+  color: var(--text-muted);
+  margin-bottom: 1.5rem;
+}
+
+.checkin-box {
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: var(--radius-sm);
+  padding: 1rem;
+  border: 1px solid var(--card-border);
+}
+
+body.night-mode .checkin-box {
+  background: rgba(0, 0, 0, 0.2);
+}
+
+.checkin-question {
+  font-size: 0.98rem;
+  font-weight: 600;
+  color: var(--text-main);
+  margin-bottom: 0.85rem;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.pulse-heart {
+  display: inline-block;
+  animation: pulseHeart 1.8s infinite ease-in-out;
+}
+
+.mood-options-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+}
+
+.mood-btn {
+  background: var(--card-bg);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius-sm);
+  padding: 0.75rem 0.9rem;
+  text-align: left;
+  font-size: 0.88rem;
+  color: var(--text-main);
+  font-family: var(--font-body);
+  font-weight: 500;
+  cursor: pointer;
+  min-height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  transition: transform 0.2s ease, background 0.2s ease;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.02);
+}
+
+.mood-btn:active, .mood-btn.active {
+  background: var(--pink-soft);
+  border-color: var(--pink-primary);
+  transform: scale(0.98);
+}
+
+.mood-feedback-box {
+  margin-top: 0.85rem;
+  padding: 0.9rem 1rem;
+  background: var(--pink-soft);
+  border-radius: var(--radius-sm);
+  border-left: 3px solid var(--pink-deep);
+  font-size: 0.9rem;
+  color: var(--text-main);
+  display: none;
+  animation: fadeIn 0.35s ease-out;
+  line-height: 1.55;
+}
+
+/* -------------------------------------------------------------
+   SECTION 2: SPOTIFY PLAYLIST
+------------------------------------------------------------- */
+.spotify-card {
+  padding: 1.15rem;
+}
+
+.card-header-flex {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 0.6rem;
+}
+
+.card-subtitle {
+  font-size: 0.88rem;
+  margin-bottom: 0.9rem;
+  color: var(--text-muted);
+}
+
+.spotify-embed-wrapper {
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0,0,0,0.06);
+  background: #121212;
+}
+
+.spotify-embed-wrapper iframe {
+  display: block;
+  width: 100%;
+  height: 152px;
+  border: 0;
+}
+
+/* -------------------------------------------------------------
+   SECTION 3: BOLOGNA SURVIVAL GUIDE (CARD TOP IMAGES)
+------------------------------------------------------------- */
+.bologna-guide-section {
+  margin-bottom: 1.5rem;
+}
+
+.guide-header {
+  margin-bottom: 1.1rem;
+}
+
+.guide-intro {
+  font-size: 0.9rem;
+}
+
+.treat-card {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--card-border);
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+}
+
+.card-image-wrapper {
+  width: 100%;
+  height: 165px;
+  overflow: hidden;
+  background: var(--pink-soft);
+  position: relative;
+}
+
+.card-top-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+  transition: transform 0.35s ease;
+}
+
+.treat-card:hover .card-top-img {
+  transform: scale(1.04);
+}
+
+.treat-card-content {
+  padding: 1.25rem 1.15rem;
+}
+
+.treat-header {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  margin-bottom: 0.4rem;
+}
+
+.treat-icon {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+  border: 1px solid var(--card-border);
+}
+
+.pink-bg { background: var(--pink-soft); }
+.sage-bg { background: var(--sage-soft); }
+.lavender-bg { background: var(--lavender-soft); }
+
+.treat-title {
+  font-size: 1.2rem;
+  margin: 0;
+}
+
+.treat-address {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  font-weight: 600;
+}
+
+.treat-subaddress {
+  font-size: 0.8rem;
+  color: var(--text-light);
+  margin-left: 3.45rem;
+  margin-bottom: 0.75rem;
+  margin-top: -0.2rem;
+}
+
+.treat-text {
+  font-size: 0.9rem;
+  color: var(--text-muted);
+  margin-bottom: 1.1rem;
+  line-height: 1.55;
+}
+
+.btn-maps {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem;
+  background: linear-gradient(135deg, var(--pink-primary) 0%, var(--pink-deep) 100%);
+  color: white;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.75rem 1.2rem;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  width: 100%;
+  min-height: 46px;
+  box-shadow: 0 4px 14px rgba(212, 116, 136, 0.3);
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+.btn-maps:active {
+  transform: scale(0.97);
+  opacity: 0.92;
+}
+
+/* Alt tea spot */
+.alt-spot-box {
+  margin-top: 0.9rem;
+  padding: 0.85rem;
+  background: var(--lavender-soft);
+  border-radius: var(--radius-sm);
+  border: 1px dashed var(--card-border);
+}
+
+.alt-spot-heading {
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--text-main);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  margin-bottom: 0.5rem;
+}
+
+.alt-spot-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 0.83rem;
+  color: var(--text-muted);
+}
+
+.btn-alt-map {
+  background: var(--card-bg);
+  color: var(--pink-deep);
+  text-decoration: none;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.7rem;
+  border-radius: var(--radius-pill);
+  border: 1px solid var(--card-border);
+  transition: transform 0.2s ease;
+}
+
+.btn-alt-map:active {
+  transform: scale(0.95);
+}
+
+/* -------------------------------------------------------------
+   SECTION 4: CUDDLE PRESCRIPTION & STITCH (FAST & LIGHTWEIGHT)
+------------------------------------------------------------- */
+.cuddle-banner-section {
+  background: var(--stitch-bg-gradient);
+  border: 2px solid #B4D0F8;
+  border-radius: var(--radius-lg);
+  padding: 1.6rem 1.25rem;
+  text-align: center;
+  margin-bottom: 1.75rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 12px 35px -8px rgba(91, 146, 229, 0.25);
+}
+
+body.night-mode .cuddle-banner-section {
+  background: linear-gradient(135deg, #1B263B 0%, #162032 100%);
+  border-color: #2F456B;
+}
+
+.rx-badge {
+  background: var(--stitch-blue);
+  color: white;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  padding: 0.25rem 0.85rem;
+  border-radius: var(--radius-pill);
+  text-transform: uppercase;
+  display: inline-block;
+  margin-bottom: 0.75rem;
+  box-shadow: 0 3px 10px rgba(91, 146, 229, 0.3);
+}
+
+.cuddle-title {
+  font-size: 1.45rem;
+  color: #1A365D;
+  margin-bottom: 0.6rem;
+}
+
+body.night-mode .cuddle-title {
+  color: #E2ECFE;
+}
+
+.cuddle-desc {
+  font-size: 0.92rem;
+  color: #334E68;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+body.night-mode .cuddle-desc {
+  color: #A0AEC0;
+}
+
+/* Centered Stitch Image */
+.stitch-image-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 1.25rem;
+  cursor: pointer;
+}
+
+.stitch-image {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.65);
+  padding: 8px;
+  border: 2px dashed #93C5FD;
+  box-shadow: 0 8px 20px rgba(91, 146, 229, 0.2);
+  transition: transform 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  will-change: transform;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+.stitch-image:hover {
+  transform: scale(1.06);
+}
+
+/* Fast, Hardware-Accelerated 60fps CSS Wiggle/Bounce Animation */
+.stitch-bounce {
+  animation: stitchWiggleBounce 0.6s cubic-bezier(0.36, 0.07, 0.19, 0.97) both;
+}
+
+.btn-stitch-pill {
+  background: linear-gradient(135deg, #4A85E6 0%, #2B6CB0 100%);
+  color: white;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.95rem 1.4rem;
+  border-radius: var(--radius-pill);
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  min-height: 52px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  box-shadow: 0 6px 20px rgba(43, 108, 176, 0.35);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  font-family: var(--font-body);
+}
+
+.btn-stitch-pill:active {
+  transform: scale(0.96);
+}
+
+/* -------------------------------------------------------------
+   SECTION 5: WATCHLIST (POLAROIDS / MOVIE POSTERS)
+------------------------------------------------------------- */
+.watchlist-section {
+  margin-bottom: 2rem;
+}
+
+.watchlist-header {
+  margin-bottom: 1.1rem;
+}
+
+.watchlist-intro {
+  font-size: 0.9rem;
+}
+
+.polaroid-ticket {
+  background: var(--card-bg);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--card-border);
+  margin-bottom: 1.25rem;
+  overflow: hidden;
+  box-shadow: var(--card-shadow);
+  position: relative;
+}
+
+.ticket-header-bar {
+  background: var(--lavender-soft);
+  padding: 0.55rem 1.2rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px dashed var(--card-border);
+}
+
+.ticket-category {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--lavender-deep);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+body.night-mode .ticket-category {
+  color: var(--lavender-primary);
+}
+
+.ticket-star-badge {
+  font-size: 0.72rem;
+  background: rgba(255,255,255,0.7);
+  padding: 0.15rem 0.5rem;
+  border-radius: 4px;
+  font-weight: 600;
+}
+
+body.night-mode .ticket-star-badge {
+  background: rgba(0,0,0,0.3);
+}
+
+.poster-image-wrapper {
+  width: 100%;
+  height: 190px;
+  overflow: hidden;
+  background: var(--lavender-soft);
+  position: relative;
+}
+
+.movie-poster-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 0;
+  box-shadow: none;
+  transition: transform 0.35s ease;
+}
+
+.polaroid-ticket:hover .movie-poster-img {
+  transform: scale(1.03);
+}
+
+.ticket-body {
+  padding: 1.25rem 1.15rem;
+}
+
+.movie-name {
+  font-size: 1.25rem;
+  margin-bottom: 0.35rem;
+}
+
+.movie-note {
+  font-size: 0.88rem;
+  font-style: italic;
+  color: var(--pink-deep);
+  margin-bottom: 1.1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.35rem;
+}
+
+.btn-watch-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.4rem;
+  background: var(--lavender-soft);
+  color: var(--text-main);
+  font-weight: 600;
+  font-size: 0.86rem;
+  padding: 0.7rem 1rem;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  border: 1px solid var(--card-border);
+  width: 100%;
+  min-height: 46px;
+  transition: all 0.2s ease;
+}
+
+.btn-watch-link:active {
+  transform: scale(0.98);
+  background: var(--lavender-primary);
+  color: white;
+}
+
+/* -------------------------------------------------------------
+   SECTION 6: FOOTER / FINAL NOTE
+------------------------------------------------------------- */
+.footer-card {
+  text-align: center;
+  padding: 2.2rem 1.25rem 1.5rem 1.25rem;
+  background: var(--card-bg);
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--card-border);
+  box-shadow: var(--card-shadow);
+}
+
+.footer-flower {
+  font-size: 2.4rem;
+  margin-bottom: 0.75rem;
+  display: inline-block;
+  animation: pulseHeart 2s infinite ease-in-out;
+}
+
+.footer-title {
+  font-size: 1.55rem;
+  margin-bottom: 0.6rem;
+}
+
+.footer-message {
+  font-size: 0.94rem;
+  color: var(--text-muted);
+  line-height: 1.65;
+  margin-bottom: 1.5rem;
+}
+
+.btn-cta-whatsapp {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.55rem;
+  background: linear-gradient(135deg, var(--pink-primary) 0%, var(--pink-deep) 100%);
+  color: white;
+  font-weight: 700;
+  font-size: 0.95rem;
+  padding: 0.95rem 1.4rem;
+  border-radius: var(--radius-pill);
+  text-decoration: none;
+  width: 100%;
+  min-height: 52px;
+  box-shadow: 0 8px 25px rgba(212, 116, 136, 0.35);
+  transition: transform 0.2s ease;
+  font-family: var(--font-body);
+}
+
+.btn-cta-whatsapp:active {
+  transform: scale(0.97);
+}
+
+/* -------------------------------------------------------------
+   KEYFRAME ANIMATIONS (PERFORMANT GPU TRANSFORMS)
+------------------------------------------------------------- */
+@keyframes stitchWiggleBounce {
+  0% { transform: scale(1) rotate(0deg); }
+  25% { transform: scale(1.15) rotate(-10deg); }
+  50% { transform: scale(1.15) rotate(10deg); }
+  75% { transform: scale(1.08) rotate(-4deg); }
+  100% { transform: scale(1) rotate(0deg); }
+}
+
+@keyframes pulseHeart {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* -------------------------------------------------------------
+   IPHONE 13 MINI FINE-TUNING (MAX-WIDTH: 400px)
+------------------------------------------------------------- */
+@media (max-width: 400px) {
+  .app-container {
+    padding-left: 0.95rem;
+    padding-right: 0.95rem;
+  }
+  h1, .hero-title { font-size: 1.65rem; }
+  h2 { font-size: 1.3rem; }
+  .treat-title, .movie-name { font-size: 1.15rem; }
+  .card, .treat-card-content, .ticket-body { padding: 1.15rem 0.95rem; }
+  .cuddle-banner-section { padding: 1.35rem 0.95rem; }
+  .btn-stitch-pill, .btn-cta-whatsapp { font-size: 0.9rem; min-height: 50px; }
+  .stitch-image { width: 115px; height: 115px; }
+  .card-image-wrapper { height: 150px; }
+  .poster-image-wrapper { height: 175px; }
+}
