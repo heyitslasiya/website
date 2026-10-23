@@ -1,291 +1,903 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Official Petition...</title>
-    
-    <!-- This pulls in the free Confetti script -->
-    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-    
-    <style>
-        body {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            min-height: 100dvh; 
-            margin: 0;
-            background-color: #eaf4fc; 
-            font-family: 'Georgia', 'Times New Roman', serif;
-            text-align: center;
-            overflow: hidden;
-            padding: 15px;
-            box-sizing: border-box;
-            -webkit-tap-highlight-color: transparent; 
-        }
-        .container {
-            background: #ffffff;
-            padding: 30px 20px;
-            border: 4px double #1e3a8a; 
-            border-radius: 5px;
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
-            position: relative;
-            z-index: 10;
-            width: 100%;
-            max-width: 400px;
-        }
-        .header-seal {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-        }
-        h1 {
-            color: #1e3a8a;
-            margin-top: 0;
-            margin-bottom: 5px;
-            font-size: 1.5rem;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-        }
-        h2 {
-            color: #555;
-            font-size: 1rem;
-            font-style: italic;
-            margin-bottom: 20px;
-            font-weight: normal;
-        }
-        .terms-box {
-            background: #f4f9ff;
-            padding: 15px;
-            margin-bottom: 20px;
-            text-align: left;
-            border-top: 2px solid #1e3a8a;
-            border-bottom: 2px solid #1e3a8a;
-        }
-        .terms-box h3 {
-            margin-top: 0;
-            color: #1e3a8a;
-            font-size: 1rem;
-            text-align: center;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-        .terms-box ul {
-            padding-left: 20px;
-            margin-bottom: 15px;
-            margin-top: 0;
-            list-style-type: decimal;
-        }
-        .terms-box li {
-            margin-bottom: 10px;
-            color: #333;
-            font-size: 0.95rem;
-            line-height: 1.4;
-        }
-        .checkbox-container {
-            display: flex;
-            align-items: flex-start;
-            justify-content: center;
-            gap: 10px;
-            font-weight: bold;
-            color: #1e3a8a;
-            font-size: 0.85rem;
-            cursor: pointer;
-            text-align: left;
-            margin-top: 15px;
-        }
-        .checkbox-container input {
-            width: 18px;
-            height: 18px;
-            accent-color: #2563eb; 
-            margin-top: 2px;
-        }
-        .buttons-wrapper {
-            position: relative;
-            min-height: 60px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin-top: 20px;
-        }
-        .btn {
-            font-size: 1.1rem;
-            padding: 14px 30px;
-            border: none;
-            border-radius: 3px;
-            font-family: 'Georgia', serif;
-            font-weight: bold;
-            -webkit-user-select: none;
-            user-select: none; 
-            text-transform: uppercase;
-        }
-        #yesBtn {
-            background-color: #1e3a8a;
-            color: white;
-            transition: transform 0.2s, background-color 0.2s;
-            width: 100%;
-            max-width: 140px;
-            border: 1px solid #172554;
-        }
-        #yesBtn:disabled {
-            background-color: #93c5fd;
-            border-color: #60a5fa;
-            opacity: 0.7;
-        }
-        #noBtn {
-            background-color: #ecf0f1;
-            color: #7f8c8d;
-            width: 100%;
-            max-width: 140px;
-            border: 1px solid #bdc3c7;
-        }
-        .hidden {
-            display: none !important;
-        }
-        #successMessage {
-            font-size: 2rem;
-            color: #2563eb; 
-            animation: stampIn 0.5s ease-in;
-            text-transform: uppercase;
-            border: 3px solid #2563eb;
-            display: inline-block;
-            padding: 10px 20px;
-            transform: rotate(-5deg);
-        }
-        #successText {
-            font-size: 1.1rem;
-            color: #333;
-            animation: fadeIn 1.2s ease-out;
-            font-weight: bold;
-            padding: 20px 10px 0 10px;
-            line-height: 1.5;
-        }
-        .bonus-gif {
-            width: 100%;
-            max-width: 250px;
-            border-radius: 10px;
-            margin-top: 15px;
-            animation: fadeIn 2s ease-out; 
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        @keyframes stampIn {
-            0% { opacity: 0; transform: scale(2) rotate(-5deg); }
-            50% { opacity: 1; transform: scale(0.9) rotate(-5deg); }
-            100% { opacity: 1; transform: scale(1) rotate(-5deg); }
-        }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(15px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-    </style>
-</head>
-<body>
-
-    <div class="container" id="mainContainer">
-        <div class="header-seal">⚖️</div>
-        <h1>Petition For Courtship</h1>
-        <h2>Filed under the Jurisdiction of Romance</h2>
-        
-        <div class="terms-box">
-            <h3>Binding Terms & Conditions</h3>
-            <ul>
-                <li><strong>Clause I:</strong> You agree to laugh at my bad jokes, regardless of evidentiary support for their humor.</li>
-                <li><strong>Clause II:</strong> You agree to jointly vacate the premises (leave together) after work.</li>
-                <li><strong>Clause III:</strong> You consent to being willfully spammed on WhatsApp.</li>
-                <li><strong>Clause IV:</strong> You agree to the provision of, at minimum, light hand-holding.</li>
-            </ul>
-            <label class="checkbox-container">
-                <input type="checkbox" id="agreeCheck" onchange="toggleYesButton()">
-                I, being of sound mind, have read and agree to be bound by these terms.
-            </label>
-        </div>
-
-        <div class="buttons-wrapper">
-            <button class="btn" id="yesBtn" onclick="sayYes()" disabled>I Object! (Wait, Yes!)</button>
-            <button class="btn" id="noBtn">I Decline</button>
-        </div>
-    </div>
-
-    <div class="container hidden" id="successContainer">
-        <h1 id="successMessage">Motion Granted</h1>
-        <p id="successText">Contract Signed & Sealed! 📝⚖️<br><br>You'll get a kiss on the cheek as a signing bonus! 😘</p>
-        
-        <!-- Updated to target your .gif file -->
-        <img src="cat-kiss.gif" alt="Cat Kiss" class="bonus-gif">
-    </div>
-
-    <script>
-        const noBtn = document.getElementById('noBtn');
-        const yesBtn = document.getElementById('yesBtn');
-
-        function toggleYesButton() {
-            const checkBox = document.getElementById('agreeCheck');
-            yesBtn.disabled = !checkBox.checked;
-            
-            if(checkBox.checked) {
-                yesBtn.innerText = "I Consent";
-                yesBtn.style.transform = 'scale(1.05)';
-                setTimeout(() => yesBtn.style.transform = 'scale(1)', 200);
-            } else {
-                yesBtn.innerText = "I Object! (Wait, Yes!)";
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>Happy Birthday Hima ✨</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              rose: '#f43f5e',
+              gold: '#fbbf24',
+              violet: '#8b5cf6'
             }
+          },
+          animation: {
+            'pulse-slow': 'pulse 2.5s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'bounce-subtle': 'bounceSubtle 2s ease-in-out infinite',
+            'float': 'float 3s ease-in-out infinite',
+            'shake': 'shake 0.4s ease-in-out'
+          },
+          keyframes: {
+            bounceSubtle: {
+              '0%, 100%': { transform: 'translateY(0)' },
+              '50%': { transform: 'translateY(-6px)' }
+            },
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-10px)' }
+            },
+            shake: {
+              '0%, 100%': { transform: 'translateX(0)' },
+              '20%, 60%': { transform: 'translateX(-8px)' },
+              '40%, 80%': { transform: 'translateX(8px)' }
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    /* Prevent rubber-band scrolling and select highlight during gestures */
+    html, body {
+      overscroll-behavior-y: none;
+      -webkit-tap-highlight-color: transparent;
+      user-select: none;
+    }
+    
+    /* Hardware accelerated layer */
+    .gpu-accelerated {
+      transform: translate3d(0, 0, 0);
+      backface-visibility: hidden;
+      will-change: transform, opacity;
+    }
+
+    /* Card stack styling */
+    .swipe-card {
+      touch-action: none;
+      user-select: none;
+      -webkit-user-select: none;
+      cursor: grab;
+    }
+    .swipe-card:active {
+      cursor: grabbing;
+    }
+
+    /* Ambient glow effects */
+    .glow-rose {
+      box-shadow: 0 0 35px -5px rgba(244, 63, 94, 0.4);
+    }
+    .glow-gold {
+      box-shadow: 0 0 35px -5px rgba(251, 191, 36, 0.35);
+    }
+
+    /* Fade-in scene transitions */
+    .scene-enter {
+      animation: sceneFadeIn 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+    @keyframes sceneFadeIn {
+      from {
+        opacity: 0;
+        transform: scale(0.97) translateY(8px);
+      }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
+  </style>
+</head>
+<body class="bg-black text-slate-100 min-h-screen flex items-center justify-center font-sans antialiased overflow-x-hidden selection:bg-rose-500 selection:text-white">
+
+  <!-- Mobile Frame Container -->
+  <main id="app-container" class="relative w-full max-w-md min-h-screen sm:min-h-[820px] sm:max-h-[880px] sm:my-6 bg-slate-950 sm:rounded-3xl sm:border sm:border-slate-800/80 shadow-2xl flex flex-col justify-between overflow-hidden">
+    
+    <!-- Background Ambient Glow -->
+    <div class="pointer-events-none absolute inset-0 overflow-hidden">
+      <div class="absolute -top-32 -left-32 w-72 h-72 bg-rose-600/20 rounded-full blur-3xl"></div>
+      <div class="absolute -bottom-32 -right-32 w-80 h-80 bg-purple-600/20 rounded-full blur-3xl"></div>
+    </div>
+
+    <!-- Active Scene Content Area -->
+    <div class="relative z-10 flex-1 flex flex-col w-full h-full">
+
+      <!-- ========================================== -->
+      <!-- SCENE 1: GREETING                          -->
+      <!-- ========================================== -->
+      <section id="scene-greeting" data-scene="greeting" class="scene flex flex-col items-center justify-center flex-1 px-6 py-12 text-center h-full">
+        <!-- Floating celebratory badge -->
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-rose-500/10 border border-rose-500/20 text-rose-300 text-xs tracking-widest uppercase font-semibold mb-8 animate-float">
+          <span>✨</span>
+          <span>23 Years Of Happiness</span>
+          <span>✨</span>
+        </div>
+
+        <!-- Typography -->
+        <h1 class="text-4xl sm:text-5xl font-extrabold tracking-tight leading-tight mb-4">
+          Happy Birthday <br>
+          <span class="bg-gradient-to-r from-rose-400 via-pink-300 to-amber-200 bg-clip-text text-transparent drop-shadow-sm">
+            My Selene 🌙
+          </span>
+        </h1>
+
+        <p class="text-slate-400 text-sm sm:text-base max-w-xs mx-auto mb-12 font-light leading-relaxed">
+         This is a little starter present from Las 💙<br>
+To his favorite person in the WORLD 🌎        </p>
+
+        <!-- Pulsing Begin Button -->
+        <div class="relative group">
+          <!-- Pulse aura -->
+          <div class="absolute -inset-1.5 bg-gradient-to-r from-rose-500 via-pink-500 to-amber-400 rounded-full blur-md opacity-75 group-hover:opacity-100 transition duration-300 animate-pulse"></div>
+          
+          <button id="btn-begin" type="button" class="relative inline-flex items-center justify-center px-9 py-4 text-base font-semibold text-white bg-slate-900 border border-rose-400/30 rounded-full shadow-lg hover:bg-slate-800 active:scale-95 transition-transform duration-150">
+            <span>Begin Experience</span>
+            <svg class="w-5 h-5 ml-2.5 -mr-1 text-rose-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M13 7l5 5m0 0l-5 5m5-5H6"></path>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- SCENE 2: PHOTO SWIPE (Tinder Style)        -->
+      <!-- ========================================== -->
+      <section id="scene-photo-swipe" data-scene="photo_swipe" class="scene hidden flex-col items-center justify-between flex-1 px-4 py-8 h-full">
+        <!-- Top header info -->
+        <div class="text-center w-full mb-2">
+          <p class="text-xs uppercase tracking-widest text-rose-400 font-semibold">Chapter 01</p>
+          <h2 class="text-xl sm:text-2xl font-bold text-white">Memories & Smiles</h2>
+          <p class="text-xs text-slate-400 mt-1">Swipe card left or right to advance</p>
+        </div>
+
+        <!-- Card Deck Container -->
+        <div id="cards-container" class="relative w-72 h-[380px] sm:w-80 sm:h-[430px] my-auto select-none">
+          <!-- Card 3 (Bottom) -->
+          <div class="swipe-card gpu-accelerated absolute inset-0 rounded-2xl overflow-hidden border border-slate-700/60 bg-slate-900 shadow-2xl flex flex-col justify-end" data-index="3" style="transform: scale(0.92) translateY(24px); z-index: 10;">
+            <img src="3.jpg?auto=format&fit=crop&w=800&q=80" alt="Celebration" class="absolute inset-0 w-full h-full object-cover pointer-events-none brightness-90">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+            <!-- Swipe Stamp Indicator -->
+            <div class="stamp-like pointer-events-none opacity-0 absolute top-6 left-6 border-2 border-emerald-400 text-emerald-300 font-extrabold uppercase px-3 py-1 rounded-lg text-sm rotate-[-15deg] transition-opacity">LIKE</div>
+            <div class="stamp-nope pointer-events-none opacity-0 absolute top-6 right-6 border-2 border-rose-500 text-rose-400 font-extrabold uppercase px-3 py-1 rounded-lg text-sm rotate-[15deg] transition-opacity">PASS</div>
+            <div class="relative z-10 p-5">
+              <span class="inline-block px-2.5 py-0.5 rounded-full bg-rose-500/20 border border-rose-400/30 text-rose-300 text-[10px] font-semibold uppercase mb-2">HAWT</span>
+              <h3 class="text-lg font-bold text-white">Mommy 💋</h3>
+              <p class="text-xs text-slate-300 mt-1 font-light">You are the most beautiful girl in the world. Kill me if I ever say otherwise</p>
+            </div>
+          </div>
+
+          <!-- Card 2 (Middle) -->
+          <div class="swipe-card gpu-accelerated absolute inset-0 rounded-2xl overflow-hidden border border-slate-700/60 bg-slate-900 shadow-2xl flex flex-col justify-end" data-index="2" style="transform: scale(0.96) translateY(12px); z-index: 20;">
+            <img src="2.jpg?auto=format&fit=crop&w=800&q=80" alt="Balloons & Party" class="absolute inset-0 w-full h-full object-cover pointer-events-none brightness-90">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+            <!-- Swipe Stamp Indicator -->
+            <div class="stamp-like pointer-events-none opacity-0 absolute top-6 left-6 border-2 border-emerald-400 text-emerald-300 font-extrabold uppercase px-3 py-1 rounded-lg text-sm rotate-[-15deg] transition-opacity">LIKE</div>
+            <div class="stamp-nope pointer-events-none opacity-0 absolute top-6 right-6 border-2 border-rose-500 text-rose-400 font-extrabold uppercase px-3 py-1 rounded-lg text-sm rotate-[15deg] transition-opacity">PASS</div>
+            <div class="relative z-10 p-5">
+              <span class="inline-block px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-[10px] font-semibold uppercase mb-2">HALO</span>
+              <h3 class="text-lg font-bold text-white">My Sweet Angel🤍</h3>
+              <p class="text-xs text-slate-300 mt-1 font-light">You have made my world a heaven. You are the most purest soul in the world.</p>
+            </div>
+          </div>
+
+          <!-- Card 1 (Top) -->
+          <div class="swipe-card gpu-accelerated absolute inset-0 rounded-2xl overflow-hidden border border-slate-700/60 bg-slate-900 shadow-2xl flex flex-col justify-end" data-index="1" style="transform: scale(1) translateY(0); z-index: 30;">
+            <img src="1.jpg?auto=format&fit=crop&w=800&q=80" alt="Sparklers" class="absolute inset-0 w-full h-full object-cover pointer-events-none brightness-90">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+            <!-- Swipe Stamp Indicator -->
+            <div class="stamp-like pointer-events-none opacity-0 absolute top-6 left-6 border-2 border-emerald-400 text-emerald-300 font-extrabold uppercase px-3 py-1 rounded-lg text-sm rotate-[-15deg] transition-opacity">LIKE</div>
+            <div class="stamp-nope pointer-events-none opacity-0 absolute top-6 right-6 border-2 border-rose-500 text-rose-400 font-extrabold uppercase px-3 py-1 rounded-lg text-sm rotate-[15deg] transition-opacity">PASS</div>
+            <div class="relative z-10 p-5">
+              <span class="inline-block px-2.5 py-0.5 rounded-full bg-pink-500/20 border border-pink-400/30 text-pink-300 text-[10px] font-semibold uppercase mb-2">Cheese</span>
+              <h3 class="text-lg font-bold text-white">My Favourite Smile 🫶 </h3>
+              <p class="text-xs text-slate-300 mt-1 font-light">Use your smile to change the world. Don't let the world change your smile. Drag this card to see more!</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Bottom helper hint -->
+        <div class="flex items-center justify-center gap-6 text-slate-400 text-xs py-2">
+          <div class="flex items-center gap-1.5 text-rose-400">
+            <span>‹ Drag Left</span>
+          </div>
+          <span class="text-slate-600">•</span>
+          <div class="flex items-center gap-1.5 text-emerald-400">
+            <span>Drag Right ›</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- SCENE 3: MEDIA PAYLOAD                     -->
+      <!-- ========================================== -->
+      <section id="scene-media-payload" data-scene="media_payload" class="scene hidden flex-col items-center justify-between flex-1 px-6 py-8 h-full">
+        <div class="text-center w-full">
+          <p class="text-xs uppercase tracking-widest text-amber-400 font-semibold">Chapter 02</p>
+          <h2 class="text-2xl font-bold text-white">Special Birthday Tribute</h2>
+          <p class="text-xs text-slate-400 mt-1">Tap below to play your personalized soundtrack</p>
+        </div>
+
+        <!-- Video Facade & Container -->
+        <div class="w-full my-auto max-w-sm">
+          <div id="video-facade-container" class="relative w-full aspect-video rounded-2xl overflow-hidden bg-slate-900 border border-slate-700/80 shadow-2xl cursor-pointer group">
+            <!-- Facade image -->
+            <img src="https://images.unsplash.com/photo-1514525253161-7a46d19cd819?auto=format&fit=crop&w=800&q=80" alt="Video Placeholder" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-75">
+            
+            <!-- Play button overlay -->
+            <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+              <div class="w-16 h-16 rounded-full bg-rose-600/90 group-hover:bg-rose-500 text-white flex items-center justify-center shadow-lg transition-transform duration-200 group-hover:scale-110 active:scale-95">
+                <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                  <path d="M8 5v14l11-7z" />
+                </svg>
+              </div>
+              <span class="text-xs font-medium text-white/90 mt-3 tracking-wide">Play Video ✦</span>
+            </div>
+          </div>
+          <p class="text-[11px] text-slate-500 text-center mt-3">High-performance deferred video iframe injection</p>
+        </div>
+
+        <!-- Next Button -->
+        <div class="w-full max-w-xs">
+          <button id="btn-next-to-auth" type="button" class="w-full py-3.5 px-6 rounded-full bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 text-white font-semibold text-sm shadow-lg active:scale-95 transition flex items-center justify-center gap-2">
+            <span>Continue Next</span>
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </button>
+        </div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- SCENE 4: AUTHENTICATION GATEWAY            -->
+      <!-- ========================================== -->
+      <section id="scene-auth-gateway" data-scene="authentication" class="scene hidden flex-col items-center justify-between flex-1 px-6 py-10 h-full">
+        <!-- Title & Instructions -->
+        <div class="text-center w-full">
+          <p class="text-xs uppercase tracking-widest text-pink-400 font-semibold">Security Check</p>
+          <h2 class="text-2xl sm:text-3xl font-bold text-white mt-1">Secret Gateway</h2>
+          <p class="text-xs sm:text-sm text-rose-300/90 mt-2 font-medium">Enter the secret passphrase to unlock your gift.</p>
+        </div>
+
+        <!-- Passphrase Gateway Box -->
+        <div class="w-full max-w-xs flex flex-col items-center my-auto p-6 rounded-3xl bg-gradient-to-b from-slate-900/90 to-slate-950/90 border border-rose-500/30 shadow-2xl backdrop-blur-sm">
+          <!-- Animated Lock Icon -->
+          <div class="w-16 h-16 rounded-2xl bg-rose-500/10 border border-rose-500/30 text-rose-400 flex items-center justify-center mb-6 shadow-inner animate-pulse-slow">
+            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path>
+            </svg>
+          </div>
+
+          <!-- Text input passphrase -->
+          <form id="passphrase-form" class="w-full flex flex-col gap-3" onsubmit="return false;">
+            <div class="relative w-full">
+              <input type="text" id="passphrase-input" autocomplete="off" placeholder="Enter passphrase..." class="w-full px-4 py-3.5 bg-slate-900 border border-slate-700 focus:border-rose-500 focus:ring-2 focus:ring-rose-500/20 text-white rounded-2xl text-sm placeholder-slate-500 outline-none transition text-center tracking-wide font-medium">
+            </div>
+            
+            <button id="btn-submit-passphrase" type="button" class="w-full py-3.5 px-6 bg-gradient-to-r from-rose-500 to-pink-600 hover:from-rose-600 hover:to-pink-700 active:scale-95 text-white text-sm font-semibold rounded-2xl shadow-lg transition flex items-center justify-center gap-2">
+              <span>Unlock Gift</span>
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
+              </svg>
+            </button>
+
+            <p id="auth-error-msg" class="text-xs text-rose-400 hidden text-center font-medium mt-1"></p>
+            <p class="text-[11px] text-slate-500 text-center mt-1">Hint: A nickname of you 👀</p>
+          </form>
+        </div>
+
+        <div class="h-4"></div>
+      </section>
+
+      <!-- ========================================== -->
+      <!-- SCENE 5: GIFT REVEAL                       -->
+      <!-- ========================================== -->
+      <section id="scene-gift-reveal" data-scene="gift_reveal" class="scene hidden flex-col items-center justify-between flex-1 px-6 py-8 h-full text-center">
+        <!-- Confetti Canvas (Scoped or Fullscreen overlay) -->
+        <canvas id="confetti-canvas" class="pointer-events-none absolute inset-0 w-full h-full z-20"></canvas>
+
+        <div class="w-full pt-2 z-10">
+          <div class="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-amber-400/10 border border-amber-400/30 text-amber-300 text-xs font-semibold uppercase tracking-wider mb-2 animate-bounce-subtle">
+            <span>🎉</span>
+            <span>Unlocked Successfully</span>
+          </div>
+          <h2 class="text-3xl font-extrabold text-white">Your Birthday Gift!</h2>
+          <p class="text-xs text-slate-400 mt-1">I have always dreamed of giving this to you!</p>
+        </div>
+
+        <!-- Gift Card & Image -->
+        <div class="relative z-10 w-full max-w-xs my-auto p-4 rounded-3xl bg-gradient-to-b from-slate-900 to-slate-950 border border-rose-500/30 glow-rose shadow-2xl flex flex-col items-center">
+          <!-- Ribbon badge -->
+          <div class="w-full aspect-square rounded-2xl overflow-hidden relative shadow-lg mb-4 border border-slate-800">
+            <img id="gift-image" src="4.jpg?auto=format&fit=crop&w=800&q=80" alt="Special Gift Box" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-4">
+              <span class="text-xs font-semibold text-rose-300 bg-rose-950/70 border border-rose-500/40 px-2.5 py-1 rounded-full backdrop-blur-sm">
+               One Ring to Rule Them ALL
+              </span>
+            </div>
+          </div>
+
+          <h3 class="text-lg font-bold text-white">Promise of LOVE 💝 </h3>
+          <p class="text-xs text-slate-300 mt-1 font-light leading-relaxed">
+            "This ring is a lasting promise that I will always be by your side. Let it be an everyday reminder you carry with you, so you know my love and support are forever yours. 💍✨💖♾️"
+          </p>
+        </div>
+
+        <!-- Restart / Replay Button -->
+        <div class="w-full max-w-xs z-10">
+          <button id="btn-replay" type="button" class="w-full py-3 px-6 rounded-full bg-slate-900 border border-slate-700 hover:border-rose-500 text-slate-300 hover:text-white text-xs font-semibold transition active:scale-95 flex items-center justify-center gap-2">
+            <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+            </svg>
+            <span>Experience Again</span>
+          </button>
+        </div>
+      </section>
+
+    </div>
+  </main>
+
+  <!-- ========================================== -->
+  <!-- VANILLA JAVASCRIPT STATE MACHINE & LOGIC   -->
+  <!-- ========================================== -->
+  <script>
+    (function () {
+      'use strict';
+
+      /* ====================================================
+       * 1. STRICT STATE MACHINE IMPLEMENTATION
+       * ==================================================== */
+      const STATES = {
+        GREETING: 'greeting',
+        PHOTO_SWIPE: 'photo_swipe',
+        MEDIA_PAYLOAD: 'media_payload',
+        AUTHENTICATION: 'authentication',
+        GIFT_REVEAL: 'gift_reveal'
+      };
+
+      const StateMachine = {
+        currentState: null,
+        scenes: {},
+
+        init() {
+          // Register all scenes by data-scene attribute
+          document.querySelectorAll('.scene').forEach(el => {
+            const state = el.getAttribute('data-scene');
+            if (state) {
+              this.scenes[state] = el;
+            }
+          });
+
+          // Transition to initial state
+          this.transition(STATES.GREETING);
+        },
+
+        transition(nextState) {
+          if (!this.scenes[nextState]) {
+            console.error(`Invalid state transition: "${nextState}" does not exist.`);
+            return;
+          }
+
+          const prevState = this.currentState;
+
+          // Run teardown on previous state if needed
+          if (prevState && this.onExit[prevState]) {
+            this.onExit[prevState]();
+          }
+
+          // Strictly hide all scenes, then show target
+          Object.values(this.scenes).forEach(sceneEl => {
+            sceneEl.classList.add('hidden');
+            sceneEl.classList.remove('flex', 'scene-enter');
+          });
+
+          const activeSceneEl = this.scenes[nextState];
+          activeSceneEl.classList.remove('hidden');
+          activeSceneEl.classList.add('flex', 'scene-enter');
+
+          this.currentState = nextState;
+
+          // Run setup on entering new state
+          if (this.onEnter[nextState]) {
+            this.onEnter[nextState]();
+          }
+        },
+
+        onEnter: {
+          [STATES.GREETING]() {
+            // Reset state if coming back
+          },
+          [STATES.PHOTO_SWIPE]() {
+            initPhotoSwipe();
+          },
+          [STATES.MEDIA_PAYLOAD]() {
+            initMediaPayload();
+          },
+          [STATES.AUTHENTICATION]() {
+            initAuthGateway();
+          },
+          [STATES.GIFT_REVEAL]() {
+            initGiftReveal();
+          }
+        },
+
+        onExit: {
+          [STATES.MEDIA_PAYLOAD]() {
+            teardownMediaPayload();
+          },
+          [STATES.GIFT_REVEAL]() {
+            teardownConfetti();
+          }
+        }
+      };
+
+      /* ====================================================
+       * 2. SCENE 1: GREETING LOGIC
+       * ==================================================== */
+      const btnBegin = document.getElementById('btn-begin');
+      btnBegin.addEventListener('click', () => {
+        StateMachine.transition(STATES.PHOTO_SWIPE);
+      });
+
+      /* ====================================================
+       * 3. SCENE 2: TINDER-STYLE PHOTO SWIPE ENGINE
+       * ==================================================== */
+      const cardsContainer = document.getElementById('cards-container');
+      const SWIPE_THRESHOLD = 100; // Requirement: 100px threshold
+      let currentActiveCard = null;
+      let startX = 0;
+      let startY = 0;
+      let deltaX = 0;
+      let deltaY = 0;
+      let isDragging = false;
+
+      function initPhotoSwipe() {
+        // If cards were cleared earlier (e.g. on replay), recreate cards
+        if (cardsContainer.querySelectorAll('.swipe-card').length === 0) {
+          renderInitialCards();
+        }
+        setupTopCard();
+      }
+
+      function renderInitialCards() {
+        cardsContainer.innerHTML = `
+          <div class="swipe-card gpu-accelerated absolute inset-0 rounded-2xl overflow-hidden border border-slate-700/60 bg-slate-900 shadow-2xl flex flex-col justify-end" data-index="3" style="transform: scale(0.92) translateY(24px); z-index: 10;">
+            <img src="2.jpg?auto=format&fit=crop&w=800&q=80" alt="Celebration" class="absolute inset-0 w-full h-full object-cover pointer-events-none brightness-90">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+            <div class="stamp-like pointer-events-none opacity-0 absolute top-6 left-6 border-2 border-emerald-400 text-emerald-300 font-extrabold uppercase px-3 py-1 rounded-lg text-sm rotate-[-15deg] transition-opacity">LIKE</div>
+            <div class="stamp-nope pointer-events-none opacity-0 absolute top-6 right-6 border-2 border-rose-500 text-rose-400 font-extrabold uppercase px-3 py-1 rounded-lg text-sm rotate-[15deg] transition-opacity">PASS</div>
+            <div class="relative z-10 p-5">
+              <span class="inline-block px-2.5 py-0.5 rounded-full bg-rose-500/20 border border-rose-400/30 text-rose-300 text-[10px] font-semibold uppercase mb-2">Memory 03</span>
+              <h3 class="text-lg font-bold text-white">Infinite Joy & Dreams</h3>
+              <p class="text-xs text-slate-300 mt-1 font-light">May every day ahead be filled with as much happiness as you give to the world.</p>
+            </div>
+          </div>
+          <div class="swipe-card gpu-accelerated absolute inset-0 rounded-2xl overflow-hidden border border-slate-700/60 bg-slate-900 shadow-2xl flex flex-col justify-end" data-index="2" style="transform: scale(0.96) translateY(12px); z-index: 20;">
+            <img src="2.jpg?auto=format&fit=crop&w=800&q=80" alt="Balloons & Party" class="absolute inset-0 w-full h-full object-cover pointer-events-none brightness-90">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+            <div class="stamp-like pointer-events-none opacity-0 absolute top-6 left-6 border-2 border-emerald-400 text-emerald-300 font-extrabold uppercase px-3 py-1 rounded-lg text-sm rotate-[-15deg] transition-opacity">LIKE</div>
+            <div class="stamp-nope pointer-events-none opacity-0 absolute top-6 right-6 border-2 border-rose-500 text-rose-400 font-extrabold uppercase px-3 py-1 rounded-lg text-sm rotate-[15deg] transition-opacity">PASS</div>
+            <div class="relative z-10 p-5">
+              <span class="inline-block px-2.5 py-0.5 rounded-full bg-amber-500/20 border border-amber-400/30 text-amber-300 text-[10px] font-semibold uppercase mb-2">Memory 02</span>
+              <h3 class="text-lg font-bold text-white">Adventures & Laughter</h3>
+              <p class="text-xs text-slate-300 mt-1 font-light">Here is to all the late-night talks, spontaneous trips, and unforgettable laughs.</p>
+            </div>
+          </div>
+          <div class="swipe-card gpu-accelerated absolute inset-0 rounded-2xl overflow-hidden border border-slate-700/60 bg-slate-900 shadow-2xl flex flex-col justify-end" data-index="1" style="transform: scale(1) translateY(0); z-index: 30;">
+            <img src="https://images.unsplash.com/photo-1464349095431-e9a21285b5f3?auto=format&fit=crop&w=800&q=80" alt="Sparklers" class="absolute inset-0 w-full h-full object-cover pointer-events-none brightness-90">
+            <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent pointer-events-none"></div>
+            <div class="stamp-like pointer-events-none opacity-0 absolute top-6 left-6 border-2 border-emerald-400 text-emerald-300 font-extrabold uppercase px-3 py-1 rounded-lg text-sm rotate-[-15deg] transition-opacity">LIKE</div>
+            <div class="stamp-nope pointer-events-none opacity-0 absolute top-6 right-6 border-2 border-rose-500 text-rose-400 font-extrabold uppercase px-3 py-1 rounded-lg text-sm rotate-[15deg] transition-opacity">PASS</div>
+            <div class="relative z-10 p-5">
+              <span class="inline-block px-2.5 py-0.5 rounded-full bg-pink-500/20 border border-pink-400/30 text-pink-300 text-[10px] font-semibold uppercase mb-2">Memory 01</span>
+              <h3 class="text-lg font-bold text-white">To New Beginnings</h3>
+              <p class="text-xs text-slate-300 mt-1 font-light">Another 365 days of brightness and brilliance. Drag this card to see more!</p>
+            </div>
+          </div>
+        `;
+      }
+
+      function setupTopCard() {
+        const cards = Array.from(cardsContainer.querySelectorAll('.swipe-card'));
+        if (cards.length === 0) {
+          // Final card swiped away -> Auto transition to Scene 3
+          StateMachine.transition(STATES.MEDIA_PAYLOAD);
+          return;
         }
 
-        function moveButton() {
-            const viewWidth = window.visualViewport ? window.visualViewport.width : window.innerWidth;
-            const viewHeight = window.visualViewport ? window.visualViewport.height : window.innerHeight;
-            
-            const padding = 30; 
-            const maxX = viewWidth - noBtn.offsetWidth - padding;
-            const maxY = viewHeight - noBtn.offsetHeight - padding;
-            
-            const randomX = Math.max(padding, Math.random() * maxX);
-            const randomY = Math.max(padding, Math.random() * maxY);
-            
-            noBtn.style.position = 'fixed';
-            noBtn.style.left = randomX + 'px';
-            noBtn.style.top = randomY + 'px';
-            noBtn.style.margin = '0';
-        }
-
-        noBtn.addEventListener('touchstart', function(e) {
-            e.preventDefault(); 
-            moveButton();
-        }, { passive: false });
-
-        noBtn.addEventListener('mouseover', moveButton);
-        noBtn.addEventListener('click', function(e) {
-            e.preventDefault();
-            moveButton();
+        // Restack remaining cards smoothly
+        cards.forEach((card, idx) => {
+          const depth = cards.length - 1 - idx;
+          card.style.transition = 'transform 0.3s cubic-bezier(0.16, 1, 0.3, 1)';
+          if (depth === 0) {
+            card.style.transform = 'scale(1) translateY(0)';
+            card.style.zIndex = '30';
+          } else if (depth === 1) {
+            card.style.transform = 'scale(0.96) translateY(12px)';
+            card.style.zIndex = '20';
+          } else {
+            card.style.transform = 'scale(0.92) translateY(24px)';
+            card.style.zIndex = '10';
+          }
         });
 
-        function sayYes() {
-            // Hide main menu, show success menu
-            document.getElementById('mainContainer').classList.add('hidden');
-            document.getElementById('successContainer').classList.remove('hidden');
+        // The top card is the last child in the container
+        currentActiveCard = cards[cards.length - 1];
+        attachDragListeners(currentActiveCard);
+      }
 
-            // Fire Blue & White Confetti
-            confetti({
-                particleCount: 150,
-                spread: 80,
-                origin: { y: 0.6 },
-                colors: ['#1e3a8a', '#2563eb', '#93c5fd', '#ffffff']
+      function attachDragListeners(card) {
+        if (!card) return;
+
+        // Clean any old listeners
+        card.removeEventListener('touchstart', onTouchStart);
+        card.removeEventListener('touchmove', onTouchMove);
+        card.removeEventListener('touchend', onTouchEnd);
+        card.removeEventListener('mousedown', onMouseDown);
+
+        // Touch event listeners
+        card.addEventListener('touchstart', onTouchStart, { passive: false });
+        card.addEventListener('touchmove', onTouchMove, { passive: false });
+        card.addEventListener('touchend', onTouchEnd);
+
+        // Mouse event listeners
+        card.addEventListener('mousedown', onMouseDown);
+      }
+
+      function startDrag(clientX, clientY) {
+        isDragging = true;
+        startX = clientX;
+        startY = clientY;
+        deltaX = 0;
+        deltaY = 0;
+        if (currentActiveCard) {
+          currentActiveCard.style.transition = 'none';
+        }
+      }
+
+      function moveDrag(clientX, clientY) {
+        if (!isDragging || !currentActiveCard) return;
+
+        deltaX = clientX - startX;
+        deltaY = clientY - startY;
+
+        // 60fps Hardware-accelerated translate and rotate calculation
+        const rotateDeg = deltaX * 0.08;
+        currentActiveCard.style.transform = `translate3d(${deltaX}px, ${deltaY * 0.25}px, 0) rotate(${rotateDeg}deg)`;
+
+        // Visual Stamp opacity cues
+        const likeStamp = currentActiveCard.querySelector('.stamp-like');
+        const nopeStamp = currentActiveCard.querySelector('.stamp-nope');
+
+        if (likeStamp && nopeStamp) {
+          if (deltaX > 20) {
+            likeStamp.style.opacity = Math.min((deltaX - 20) / (SWIPE_THRESHOLD - 20), 1);
+            nopeStamp.style.opacity = 0;
+          } else if (deltaX < -20) {
+            nopeStamp.style.opacity = Math.min((Math.abs(deltaX) - 20) / (SWIPE_THRESHOLD - 20), 1);
+            likeStamp.style.opacity = 0;
+          } else {
+            likeStamp.style.opacity = 0;
+            nopeStamp.style.opacity = 0;
+          }
+        }
+      }
+
+      function endDrag() {
+        if (!isDragging || !currentActiveCard) return;
+        isDragging = false;
+
+        const absDeltaX = Math.abs(deltaX);
+
+        if (absDeltaX > SWIPE_THRESHOLD) {
+          // Swipe Passed Threshold -> Animate off-screen
+          const direction = deltaX > 0 ? 1 : -1;
+          const flyOutDistance = window.innerWidth + 300;
+          const flyOutRotation = direction * 45;
+
+          currentActiveCard.style.transition = 'transform 0.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.4s ease-out';
+          currentActiveCard.style.transform = `translate3d(${direction * flyOutDistance}px, ${deltaY}px, 0) rotate(${flyOutRotation}deg)`;
+          currentActiveCard.style.opacity = '0';
+          currentActiveCard.style.pointerEvents = 'none';
+
+          const cardToRemove = currentActiveCard;
+          setTimeout(() => {
+            if (cardToRemove && cardToRemove.parentNode) {
+              cardToRemove.remove();
+            }
+            setupTopCard();
+          }, 400);
+
+        } else {
+          // Revert back smoothly
+          currentActiveCard.style.transition = 'transform 0.35s cubic-bezier(0.175, 0.885, 0.32, 1.275)';
+          currentActiveCard.style.transform = 'scale(1) translate3d(0, 0, 0) rotate(0deg)';
+
+          const likeStamp = currentActiveCard.querySelector('.stamp-like');
+          const nopeStamp = currentActiveCard.querySelector('.stamp-nope');
+          if (likeStamp) likeStamp.style.opacity = 0;
+          if (nopeStamp) nopeStamp.style.opacity = 0;
+        }
+
+        deltaX = 0;
+        deltaY = 0;
+      }
+
+      /* Touch Event Handlers */
+      function onTouchStart(e) {
+        if (e.touches.length !== 1) return;
+        const touch = e.touches[0];
+        startDrag(touch.clientX, touch.clientY);
+      }
+
+      function onTouchMove(e) {
+        if (!isDragging || e.touches.length !== 1) return;
+        e.preventDefault(); // Prevent page scroll during card drag
+        const touch = e.touches[0];
+        moveDrag(touch.clientX, touch.clientY);
+      }
+
+      function onTouchEnd() {
+        endDrag();
+      }
+
+      /* Mouse Event Handlers */
+      function onMouseDown(e) {
+        if (e.button !== 0) return; // Only primary mouse button
+        e.preventDefault();
+        startDrag(e.clientX, e.clientY);
+        window.addEventListener('mousemove', onMouseMove);
+        window.addEventListener('mouseup', onMouseUp);
+      }
+
+      function onMouseMove(e) {
+        moveDrag(e.clientX, e.clientY);
+      }
+
+      function onMouseUp(e) {
+        window.removeEventListener('mousemove', onMouseMove);
+        window.removeEventListener('mouseup', onMouseUp);
+        endDrag();
+      }
+
+      /* ====================================================
+       * 4. SCENE 3: MEDIA PAYLOAD (YOUTUBE FACADE)
+       * ==================================================== */
+      const videoFacadeContainer = document.getElementById('video-facade-container');
+      const btnNextToAuth = document.getElementById('btn-next-to-auth');
+      // Placeholder YouTube video ID (can be customized)
+      const YOUTUBE_VIDEO_ID = 'SQ97d9keNeY';
+      let isVideoInjected = false;
+
+      function initMediaPayload() {
+        isVideoInjected = false;
+        renderVideoFacade();
+      }
+
+      function renderVideoFacade() {
+        videoFacadeContainer.innerHTML = `
+          <img src="https://i9.ytimg.com/vi_webp/SQ97d9keNeY/mq3.webp?sqp=CJCl7tYG-oaymwEmCMACELQB8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGUgZShlMA8=&rs=AOn4CLDWlfTYsFgDdLGoa3FQGqQPH2vLxQ" alt="Video Placeholder" class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105 brightness-75">
+          <div class="absolute inset-0 flex flex-col items-center justify-center bg-black/40 group-hover:bg-black/20 transition-colors">
+            <div class="w-16 h-16 rounded-full bg-rose-600/90 group-hover:bg-rose-500 text-white flex items-center justify-center shadow-lg transition-transform duration-200 group-hover:scale-110 active:scale-95">
+              <svg class="w-8 h-8 ml-1" fill="currentColor" viewBox="0 0 24 24">
+                <path d="M8 5v14l11-7z" />
+              </svg>
+            </div>
+            <span class="text-xs font-medium text-white/90 mt-3 tracking-wide">Play Video ✦</span>
+          </div>
+        `;
+      }
+
+      videoFacadeContainer.addEventListener('click', () => {
+        if (isVideoInjected) return;
+        isVideoInjected = true;
+        // Inject YouTube iframe with autoplay
+        videoFacadeContainer.innerHTML = `
+          <iframe class="w-full h-full rounded-2xl shadow-xl"
+                  src="https://www.youtube.com/embed/${YOUTUBE_VIDEO_ID}?autoplay=1&enablejsapi=1"
+                  title="Birthday Tribute"
+                  frameborder="0"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  allowfullscreen>
+          </iframe>
+        `;
+      });
+
+      function teardownMediaPayload() {
+        // Teardown iframe to stop audio playback when advancing
+        if (isVideoInjected) {
+          renderVideoFacade();
+          isVideoInjected = false;
+        }
+      }
+
+      btnNextToAuth.addEventListener('click', () => {
+        StateMachine.transition(STATES.AUTHENTICATION);
+      });
+
+      /* ====================================================
+       * 5. SCENE 4: AUTHENTICATION GATEWAY
+       * ==================================================== */
+      const passphraseInput = document.getElementById('passphrase-input');
+      const btnSubmitPassphrase = document.getElementById('btn-submit-passphrase');
+      const authErrorMsg = document.getElementById('auth-error-msg');
+      let authUnlocked = false;
+
+      function initAuthGateway() {
+        authUnlocked = false;
+        passphraseInput.value = '';
+        passphraseInput.classList.remove('border-rose-500', 'border-emerald-500');
+        authErrorMsg.classList.add('hidden');
+        setTimeout(() => passphraseInput.focus(), 250);
+      }
+
+      // Passphrase Check Logic: "snoopy" (case-insensitive)
+      function checkPassphrase() {
+        if (authUnlocked) return;
+        const val = passphraseInput.value.trim().toLowerCase();
+        if (val === 'snoopy') {
+          triggerAuthSuccess('🎉 Passphrase "snoopy" Accepted!');
+        } else {
+          showAuthError('Incorrect passphrase. Try "snoopy"');
+        }
+      }
+
+      btnSubmitPassphrase.addEventListener('click', checkPassphrase);
+      passphraseInput.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter') {
+          e.preventDefault();
+          checkPassphrase();
+        }
+      });
+
+      function showAuthError(msg) {
+        authErrorMsg.textContent = msg;
+        authErrorMsg.className = 'text-xs text-rose-400 text-center font-medium mt-1';
+        authErrorMsg.classList.remove('hidden');
+        passphraseInput.classList.remove('border-emerald-500');
+        passphraseInput.classList.add('border-rose-500', 'animate-shake');
+        setTimeout(() => {
+          passphraseInput.classList.remove('animate-shake');
+        }, 500);
+      }
+
+      function triggerAuthSuccess(msg) {
+        if (authUnlocked) return;
+        authUnlocked = true;
+
+        authErrorMsg.textContent = msg;
+        authErrorMsg.className = 'text-xs text-emerald-400 text-center font-semibold mt-1';
+        authErrorMsg.classList.remove('hidden');
+
+        passphraseInput.classList.remove('border-rose-500');
+        passphraseInput.classList.add('border-emerald-500');
+
+        setTimeout(() => {
+          StateMachine.transition(STATES.GIFT_REVEAL);
+        }, 650);
+      }
+
+      /* ====================================================
+       * 6. SCENE 5: GIFT REVEAL & LIGHTWEIGHT CONFETTI
+       * ==================================================== */
+      const confettiCanvas = document.getElementById('confetti-canvas');
+      const confettiCtx = confettiCanvas.getContext('2d');
+      const btnReplay = document.getElementById('btn-replay');
+      let confettiAnimId = null;
+      let particles = [];
+
+      function initGiftReveal() {
+        startConfetti();
+      }
+
+      function startConfetti() {
+        teardownConfetti();
+
+        requestAnimationFrame(() => {
+          const rect = confettiCanvas.parentElement.getBoundingClientRect();
+          const width = rect.width || confettiCanvas.parentElement.clientWidth || 360;
+          const height = rect.height || confettiCanvas.parentElement.clientHeight || 640;
+          const dpr = window.devicePixelRatio || 1;
+          confettiCanvas.width = width * dpr;
+          confettiCanvas.height = height * dpr;
+          confettiCtx.scale(dpr, dpr);
+
+          const colors = ['#f43f5e', '#fb7185', '#fbbf24', '#f59e0b', '#a855f7', '#38bdf8', '#34d399', '#ffffff'];
+          particles = [];
+          const particleCount = 120;
+
+          for (let i = 0; i < particleCount; i++) {
+            particles.push({
+              x: Math.random() * width,
+              y: Math.random() * (height * 0.3) - 20,
+              size: Math.random() * 8 + 4,
+              color: colors[Math.floor(Math.random() * colors.length)],
+              vx: (Math.random() - 0.5) * 4,
+              vy: Math.random() * 3 + 2,
+              angle: Math.random() * 360,
+              vRot: (Math.random() - 0.5) * 6,
+              shape: Math.random() > 0.4 ? 'rect' : 'circle',
+              opacity: 1
+            });
+          }
+
+          function loop() {
+            confettiCtx.clearRect(0, 0, width, height);
+
+            particles.forEach(p => {
+              p.x += p.vx;
+              p.y += p.vy;
+              p.angle += p.vRot;
+              p.vy += 0.04; // gravity
+
+              // Wrap around bottom
+              if (p.y > height) {
+                p.y = -10;
+                p.x = Math.random() * width;
+                p.vy = Math.random() * 3 + 2;
+              }
+
+              confettiCtx.save();
+              confettiCtx.translate(p.x, p.y);
+              confettiCtx.rotate((p.angle * Math.PI) / 180);
+              confettiCtx.fillStyle = p.color;
+
+              if (p.shape === 'rect') {
+                confettiCtx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size * 1.5);
+              } else {
+                confettiCtx.beginPath();
+                confettiCtx.arc(0, 0, p.size / 2, 0, Math.PI * 2);
+                confettiCtx.fill();
+              }
+
+              confettiCtx.restore();
             });
 
-            // Trigger Discord Webhook Notification
-            const webhookUrl = 'https://corsproxy.io/?' + encodeURIComponent('YOUR_DISCORD_WEBHOOK_URL_HERE'); 
-            
-            fetch(webhookUrl, {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({
-                    content: "🚨 **SHE SAID YES!** 🚨 The contract has been signed. Prepare the signing bonus! 😘"
-                })
-            }).catch(error => console.log('Notification hidden error'));
+            confettiAnimId = requestAnimationFrame(loop);
+          }
+
+          loop();
+        });
+      }
+
+      function teardownConfetti() {
+        if (confettiAnimId) {
+          cancelAnimationFrame(confettiAnimId);
+          confettiAnimId = null;
         }
-    </script>
+        if (confettiCtx) {
+          const rect = confettiCanvas.parentElement.getBoundingClientRect();
+          confettiCtx.clearRect(0, 0, rect.width, rect.height);
+        }
+      }
+
+      btnReplay.addEventListener('click', () => {
+        StateMachine.transition(STATES.GREETING);
+      });
+
+      // Handle resize events dynamically
+      window.addEventListener('resize', () => {
+        if (StateMachine.currentState === STATES.GIFT_REVEAL) {
+          startConfetti();
+        }
+      });
+
+      /* ====================================================
+       * 7. BOOTSTRAP APPLICATION
+       * ==================================================== */
+      document.addEventListener('DOMContentLoaded', () => {
+        StateMachine.init();
+      });
+
+      // Fallback if DOM already loaded
+      if (document.readyState === 'interactive' || document.readyState === 'complete') {
+        StateMachine.init();
+      }
+
+    })();
+  </script>
 </body>
 </html>
